@@ -5,7 +5,7 @@ echo ========================================================
 echo  PUSHING RESRISE STUDIO TO GITHUB (finxpress2307)
 echo ========================================================
 echo.
-git push -u origin main
+git push -u origin main --force
 echo.
 echo ========================================================
 echo  Done!
