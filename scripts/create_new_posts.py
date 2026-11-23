@@ -18,7 +18,7 @@ NEW_POSTS = [
         "account": "mairamehraofficial",
         "display_name": "Maira Mehra",
         "day_index": 16,
-        "status": "APPROVED",
+        "status": "PENDING_APPROVAL",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "format": "Carousel (3 slides)",
         "pillar": "Festive Gold Metallic Tissue Silk Saree & Backless Choli (Adiiti Realism)",
