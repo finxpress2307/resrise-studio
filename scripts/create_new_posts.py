@@ -12,7 +12,73 @@ def generate_id():
     return uuid.uuid4().hex[:8]
 
 NEW_POSTS = [
-    # ---------------- 1. MAIRA MEHRA 3-SLIDE CAROUSEL (Festive Gold Tissue Saree - Adiiti Realism) ----------------
+    # ---------------- 1. MAIRA MEHRA 4-SLIDE MIXED-MEDIA CAROUSEL (Emerald Satin Hotel Suite - 3 Photos + 1 Video Reel) ----------------
+    {
+        "id": generate_id(),
+        "account": "mairamehraofficial",
+        "display_name": "Maira Mehra",
+        "day_index": 17,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Mixed Carousel (4 slides: 3 photos + 1 video)",
+        "pillar": "Liquid Emerald Green Satin Saree & Hotel Bedside Drape (Adiiti Realism)",
+        "location": "The Oberoi Grand, Luxury Suite, Kolkata, India",
+        "viral_score": 99,
+        "viral_reason": (
+            "Mixed-media carousel format (Slide 1 candid bedside lean photo + Slide 2 9:16 motion video reel + "
+            "Slide 3 backless halter turn photo + Slide 4 bathroom vanity mirror selfie photo). "
+            "Delivers the highest engagement & save-rate on Instagram by combining high-retention video dwell time "
+            "with viral swipe mechanics."
+        ),
+        "image_prompt": (
+            "4-slide mixed-media luxury hotel suite carousel of Maira Mehra in a liquid emerald green satin silk saree and backless halter choli:\n"
+            "Slide 1 (Hero Photo): Candid morning lifestyle photo sitting on edge of crisp white hotel bedding holding iced coffee, warm morning window light.\n"
+            "Slide 2 (Omni Video Reel): 4-second vertical 9:16 motion video of Maira on luxury hotel bed holding iced latte, fluid satin drape catching sunlight.\n"
+            "Slide 3 (Backless Turn Photo): Over-the-shoulder candid turn revealing deep backless halter cut, warm ambient bedroom lamps, unretouched spine and skin texture.\n"
+            "Slide 4 (Mirror Vanity Selfie Photo): Raw bathroom vanity mirror selfie holding smartphone, flash reflection bounce on marble."
+        ),
+        "caption": (
+            "Green flag energy, always 💚🌿\r\n\r\n"
+            "Slide 2 video for the drape in motion! Swipe to see the backless cut & mirror check.\r\n"
+            "Exact liquid satin saree & halter blouse pinned in bio club ⤵\r\n\r\n"
+            "#MairaMehra #SatinSaree #EmeraldGreen #DesiStyle #SareeDrape #MixedMediaCarousel"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide1.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide2.mp4"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide3.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide4.jpg"),
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide1.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide2.mp4"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide3.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day17_maira_emerald_satin_slide4.jpg"),
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-23 06:00 PM",
+        "alt_texts": [
+            "Slide 1: Candid morning photo of @mairamehraofficial sitting on a luxury hotel bed in an emerald green satin saree holding iced coffee.",
+            "Slide 2: Vertical video clip showing the liquid emerald green satin drape and morning sunlight in motion.",
+            "Slide 3: Candid photo from behind showing @mairamehraofficial glancing over shoulder with backless halter choli.",
+            "Slide 4: Raw smartphone mirror selfie of @mairamehraofficial in marble bathroom vanity.",
+        ],
+        "telegram_drop": (
+            "💎 **MAIRA MEHRA VIP DROP: Liquid Emerald Satin & Halter Edit**\n\n"
+            "As seen in today's 4-slide mixed-media hotel suite drop:\n"
+            "• **Saree**: Liquid Emerald Green Satin Silk Saree with Fluid Fall (₹1,999)\n"
+            "• **Blouse**: Emerald Satin Backless Halter Crop Top / Choli (₹699)\n\n"
+            "🛍️ **Verified Direct Acquisition Links**:\n"
+            "👉 [Amazon Saree Search](https://www.amazon.in/s?k=emerald+green+satin+silk+plain+saree&tag=gaganresrise-21)\n"
+            "👉 [Amazon Backless Halter Blouse](https://www.amazon.in/s?k=satin+backless+halter+neck+blouse+green&tag=gaganresrise-21)\n"
+            "👉 [EarnKaro Multi-Store / Myntra Deal](https://topdeal.app.link/maira-emerald-satin?subid=maira_emerald_look)\n\n"
+            "📌 Pinned in VIP Club. Drop comments/styling questions below!\n"
+            "*Disclosures: Links contain affiliate tracking tags (#affiliate). Curated at zero extra cost to you.*"
+        ),
+    },
+
+    # ---------------- 2. MAIRA MEHRA 3-SLIDE CAROUSEL (Festive Gold Tissue Saree - Adiiti Realism) ----------------
     {
         "id": generate_id(),
         "account": "mairamehraofficial",
