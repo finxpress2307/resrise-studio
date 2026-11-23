@@ -284,35 +284,35 @@ CREATOR_LOOK_CATALOG: dict[str, list[dict[str, Any]]] = {
     ],
 }
 
-# Persona-specific automated responses with active Telegram and ASCI #affiliate tags
+# Persona-specific automated responses (Clean bio prompts without raw https:// URLs to prevent spam filters)
 AFFILIATE_RESPONSES: dict[str, list[str]] = {
     "avanyamehra": [
-        "Here's the look breakdown ✨ Curated outfit & styling links are in my Telegram Luxe Vault: https://t.me/avanyamehra_luxe (link in bio) 🤍 #affiliate",
-        "Loved this silhouette? 🤍 Direct styling & luxury partner links dropped in Telegram: https://t.me/avanyamehra_luxe ✨ #affiliate",
-        "Full outfit details & styling curation are up in our VIP channel: https://t.me/avanyamehra_luxe (or tap bio link) ✨ #affiliate",
-        "Sent you the look details! High-fashion piece links & dupes in my Telegram Luxe Vault: https://t.me/avanyamehra_luxe 🤍 #affiliate",
+        "Here's the look breakdown ✨ Curated outfit & styling links pinned in bio (t.me/avanyamehra_luxe) 🤍 #affiliate",
+        "Loved this silhouette? 🤍 Direct styling & luxury partner pieces are linked in my bio vault (t.me/avanyamehra_luxe) ✨ #affiliate",
+        "Full outfit details & styling curation are up via the link in my bio (t.me/avanyamehra_luxe) ✨ #affiliate",
+        "Sent you the look details! High-fashion piece links & dupes pinned in my bio (t.me/avanyamehra_luxe) 🤍 #affiliate",
     ],
     "mairamehraofficial": [
-        "Sent you the drape details! 🌸 Full saree & styling link dropped in our VIP channel: https://t.me/mairamehraclub (or check bio link) ✨ #affiliate",
-        "Loved this drape? 🌸 Direct saree source & jewelry links are live in our Telegram VIP: https://t.me/mairamehraclub ✨ #affiliate",
-        "Here's the outfit link! Tap bio or grab the direct saree link in our Telegram club: https://t.me/mairamehraclub 🌸 #affiliate",
-        "All saree draping notes & matching blouse/jewelry links are pinned in Telegram: https://t.me/mairamehraclub 🤍 #affiliate",
+        "Sent you the drape details! 🌸 Full saree & jewelry sources are live via our bio link (t.me/mairamehraclub) ✨ #affiliate",
+        "Loved this drape? 🌸 Direct saree source & jewelry links are pinned in our bio club (t.me/mairamehraclub) ✨ #affiliate",
+        "Here's the outfit curation! Tap our bio link to grab the direct saree details (t.me/mairamehraclub) 🌸 #affiliate",
+        "All saree draping notes & matching blouse/jewelry links are pinned in our bio link (t.me/mairamehraclub) 🤍 #affiliate",
     ],
     "iamgagankumar": [
-        "Got you covered brother! ⚡ Clean fit & grooming links dropped in the Men's Capsule Telegram: https://t.me/gagankumar_menswear (or bio link) #affiliate",
-        "Tailored fit breakdown & direct links are live in our Telegram community: https://t.me/gagankumar_menswear ⚡ #affiliate",
-        "Here's the outfit link! Full capsule breakdown & source links on Telegram: https://t.me/gagankumar_menswear (link in bio) ⚡ #affiliate",
-        "Fit details & grooming essentials sent! Grab direct links in our Men's Capsule Telegram: https://t.me/gagankumar_menswear ⚡ #affiliate",
+        "Got you covered brother! ⚡ Clean fit & grooming links pinned in the bio link (t.me/gagankumar_menswear) #affiliate",
+        "Tailored fit breakdown & direct pieces are linked in my bio (t.me/gagankumar_menswear) ⚡ #affiliate",
+        "Here's the outfit curation! Full capsule breakdown & source links in bio (t.me/gagankumar_menswear) ⚡ #affiliate",
+        "Fit details & grooming essentials ready! Grab direct links in my bio (t.me/gagankumar_menswear) ⚡ #affiliate",
     ],
     "resrise": [
-        "Thank you! Full creative campaign breakdown & studio booking links: https://t.me/resrise_studio (or check bio link) ✨",
-        "Agency & editorial inquiries: connect with our team directly in our Telegram studio hub: https://t.me/resrise_studio ✨",
-        "Interested in creator roster collaborations? Join our Telegram brand channel: https://t.me/resrise_studio or DM us ✨",
+        "Thank you! Full creative campaign breakdown & studio booking info are linked in bio (t.me/resrise_studio) ✨",
+        "Agency & editorial inquiries: connect with our team directly via our bio link (t.me/resrise_studio) ✨",
+        "Interested in creator roster collaborations? Access our partner portal in bio (t.me/resrise_studio) ✨",
     ],
     "gagankumarrocks": [
-        "Appreciate it! Full creator media systems blueprint & automation docs are in Telegram: https://t.me/gagankumar_growth 🚀",
-        "Growth playbook & agency scaling breakdown are pinned in our Telegram network: https://t.me/gagankumar_growth ⚡",
-        "Grab the full brand growth system & free templates inside our Telegram: https://t.me/gagankumar_growth 🚀",
+        "Appreciate it! Full creator media systems blueprint & automation docs in bio (t.me/gagankumar_growth) 🚀",
+        "Growth playbook & agency scaling breakdown are pinned via our bio link (t.me/gagankumar_growth) ⚡",
+        "Grab the full brand growth system & free templates inside our bio portal (t.me/gagankumar_growth) 🚀",
     ],
 }
 

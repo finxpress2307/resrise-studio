@@ -380,13 +380,52 @@ def is_post_from_followed_account(article, account: str = ""):
         return False, "", f"Error inspecting article: {e}"
 
 
-def generate_contextual_comment(account: str, author: str, caption_text: str = "") -> str:
+def generate_contextual_comment(
+    account: str,
+    author: str = "",
+    caption_text: str = "",
+    image_bytes: bytes = None,
+) -> str:
     """
     Generates an authentic, dynamic, context-aware peer comment tailored to the actual post.
+    If image_bytes is provided, leverages live Vision (Gemini / OpenRouter) to write a sincere,
+    detail-specific peer response.
     Enforces anti-repetition guards (<35% overlap across last 72 hours).
     """
+    # Safeguard against parameter swapping (e.g. if author is passed as image_bytes)
+    if isinstance(author, (bytes, bytearray)):
+        image_bytes = author
+        author = ""
+
     clean_acc = account.lstrip("@").lower()
     history = load_comments_history()
+
+    # 1. Try live Vision if image_bytes is provided
+    if image_bytes and len(image_bytes) > 0:
+        try:
+            from scripts.core.vision import VisionClient
+            v_client = VisionClient()
+            if v_client.is_configured():
+                v_prompt = (
+                    f"You are commenting from the Instagram persona @{clean_acc}. "
+                    f"Post author: @{author if author else 'peer'}. "
+                    f"Caption: {caption_text[:300] if caption_text else 'None'}. "
+                    "Write an authentic, human, peer comment (1-2 sentences maximum). "
+                    "Observe one specific visual detail in the image (e.g. fabric drape, lighting, color harmony, tailoring, embroidery, jewelry, or silhouette). "
+                    "Compliment it sincerely or ask an organic question. "
+                    "Tone: effortless, supportive creator peer. No bot hype, no sales pitch, no exclamation mark spam. Maximum 1 tasteful emoji. "
+                    "Output ONLY the comment text."
+                )
+                vision_reply = v_client.call_vision(v_prompt, image_bytes)
+                if vision_reply:
+                    cand = vision_reply.strip().strip('"').strip("'")
+                    if cand and len(cand) > 10:
+                        is_rep, _ = is_comment_repetitive(cand, history=history, max_overlap=0.35, lookback_hours=72.0)
+                        if not is_rep:
+                            return cand
+        except Exception:
+            pass
+
     cap_lower = caption_text.lower() if caption_text else ""
 
     # Dynamic pool tailored to specific niche indicators in the post

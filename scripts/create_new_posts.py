@@ -3,7 +3,8 @@ import os
 import uuid
 from datetime import datetime
 
-PROJECT_DIR = r"C:\resrise-studio"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 QUEUE_PATH = os.path.join(PROJECT_DIR, "swarm_queue.json")
 TELEGRAM_DROPS_PATH = os.path.join(PROJECT_DIR, "telegram_drops_queue.json")
 
@@ -285,6 +286,10 @@ def apply_new_posts():
     for p in queue:
         if p.get("status") == "APPROVED":
             p["status"] = "STOPPED"
+
+    for p in NEW_POSTS:
+        if "media_paths" in p and "media_files" not in p:
+            p["media_files"] = p["media_paths"]
 
     updated_queue = NEW_POSTS + queue
     with open(QUEUE_PATH, "w", encoding="utf-8") as f:

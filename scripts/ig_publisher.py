@@ -8,8 +8,8 @@ from playwright.sync_api import sync_playwright
 
 ACCOUNTS = ["avanyamehra", "mairamehraofficial", "iamgagankumar", "resrise", "gagankumarrocks"]
 
-# Cadence configuration
-BASE_START_TIME = datetime(2026, 11, 20, 6, 0)
+# Cadence configuration - dynamic forward anchor (tomorrow at 6:00 AM)
+BASE_START_TIME = datetime.now().replace(hour=6, minute=0, second=0, microsecond=0) + timedelta(days=1)
 ACCOUNT_OFFSETS = {
     "avanyamehra": 0,          # 6:00 AM
     "mairamehraofficial": 3,   # 9:00 AM (+3h)

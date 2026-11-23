@@ -29,16 +29,21 @@ except ImportError:
 
 
 class VisionCommentAgent:
-    """Vision-based comment generator using FreeLLMAPI/OpenRouter with persona fallbacks."""
+    """Vision-based comment generator using GeminiVision/OpenRouter with persona fallbacks."""
 
     @staticmethod
     def generate_comment(
         account: str,
-        image_bytes: bytes,
+        image_bytes: bytes = None,
         caption_text: str = "",
         creator_handle: str = "",
     ) -> str:
-        return generate_peer_comment(account, image_bytes, caption_text)
+        return generate_peer_comment(
+            account=account,
+            author=creator_handle,
+            caption_text=caption_text,
+            image_bytes=image_bytes,
+        )
 
 
 def simulate_human_browsing(

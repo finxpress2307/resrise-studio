@@ -23,6 +23,15 @@ DM_HISTORY_FILE = os.path.join(PROJECT_DIR, "dm_sent_history.json")
 ACCOUNTS_CONFIG = os.path.join(SCRIPT_DIR, "accounts_config.json")
 AFFILIATE_CONFIG = os.path.join(PROJECT_DIR, "affiliate_config.json")
 
+# Import affiliate catalog and helper utilities
+sys.path.insert(0, SCRIPT_DIR)
+from affiliate_mappings import (
+    CREATOR_LOOK_CATALOG,
+    get_amazon_link,
+    get_creator_telegram,
+    get_amazon_tag,
+)
+
 # Keywords that trigger a product link DM
 BUY_INTENT_TRIGGERS = [
     r"\blink\b",
@@ -112,24 +121,67 @@ def has_buy_intent(comment_text: str) -> bool:
     return False
 
 
+def build_dynamic_dm_message(account: str, caption_text: str = "") -> str:
+    """
+    Builds a personalized, look-specific DM message based on the post caption,
+    using verified affiliate links with the creator's assigned tracking tag.
+    """
+    clean_acc = account.lstrip("@").lower()
+    tag = get_amazon_tag(clean_acc)
+    tg_info = get_creator_telegram(clean_acc)
+    tg_url = tg_info["url"] if tg_info else "https://t.me/resrise_studio"
+
+    catalog = CREATOR_LOOK_CATALOG.get(clean_acc, [])
+    cap_lower = caption_text.lower() if caption_text else ""
+
+    # Match look based on keywords in caption
+    matched_look = None
+    for look in catalog:
+        keywords = look.get("search_keywords", "").lower().split()
+        title_words = look.get("title", "").lower().split()
+        check_words = [w for w in keywords + title_words if len(w) > 4]
+        if any(w in cap_lower for w in check_words):
+            matched_look = look
+            break
+
+    # If matched, create dynamic piece card
+    if matched_look:
+        raw_amz = matched_look.get("amazon_url", "")
+        tracked_amz = get_amazon_link(clean_acc, raw_amz) if raw_amz else ""
+        price = matched_look.get("price", "")
+        title = matched_look.get("title", "Curated Piece")
+
+        msg = (
+            f"Hey! ✨ Here are the verified acquisition details for this look:\n\n"
+            f"• Piece: {title} ({price})\n"
+            f"👉 Direct Amazon Link: {tracked_amz}\n"
+            f"👉 Full Styling Breakdown in VIP Club: {tg_url}\n\n"
+            f"Enjoy the styling! 🤍 (#affiliate)"
+        )
+        return msg
+
+    # Fallback to persona curated template with proper tag
+    fallback = PERSONA_PRODUCT_DMS.get(clean_acc)
+    if fallback:
+        fallback = re.sub(r"tag=[a-zA-Z0-9_-]+", f"tag={tag}", fallback)
+        return fallback
+
+    return f"Hey! ✨ Here is the shopping curation from today's look: {tg_url} (#affiliate)"
+
+
 def run_dm_automation(account: str, max_dms: int = 5, dry_run: bool = False):
     print(f"\n=======================================================")
     print(f"       RESRISE STUDIO - INSTAGRAM DM AUTOMATION        ")
     print(f"       Account: @{account} | Max DMs: {max_dms}        ")
     print(f"=======================================================")
 
-    dm_template = PERSONA_PRODUCT_DMS.get(account)
-    if not dm_template:
-        print(f"❌ No product DM template defined for @{account}")
-        return
-
     history = load_dm_history()
     account_history = history.setdefault("messaged_users", {}).setdefault(account, [])
 
     if dry_run:
         print("ℹ️ Running in DRY-RUN mode. No real DMs will be sent.")
-        print("Template Preview:\n-------------------------------------------------------")
-        print(dm_template)
+        print("Dynamic Template Preview:\n-------------------------------------------------------")
+        print(build_dynamic_dm_message(account))
         print("-------------------------------------------------------")
         return
 
@@ -179,6 +231,16 @@ def run_dm_automation(account: str, max_dms: int = 5, dry_run: bool = False):
 
         first_post.click()
         time.sleep(3.5)
+
+        # Extract post caption to match look from catalog
+        post_caption = ""
+        try:
+            caption_elem = page.locator("h1, article span[dir='auto']").first
+            if caption_elem.is_visible(timeout=2000):
+                post_caption = caption_elem.inner_text()
+        except Exception:
+            pass
+        dm_template = build_dynamic_dm_message(account, post_caption)
 
         # Scan comments
         print("Scanning post comments for buy intent triggers...")

@@ -91,20 +91,31 @@ def ensure_jpeg(image_path: str) -> tuple[bytes, str]:
 
 
 def upload_slide_to_cloud(image_path: str, post_id: str, slide_idx: int) -> tuple[str, str]:
-    """Uploads a JPEG slide to Cloudinary, returning (public_https_url, public_id)."""
+    """Uploads an image (JPEG) or video (.mp4) to Cloudinary, returning (public_https_url, public_id)."""
     if not HAS_CLOUDINARY:
         raise RuntimeError("Cloudinary is not configured. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET in .env.")
 
-    jpeg_bytes, _ = ensure_jpeg(image_path)
-    public_id = f"resrise_posts/{post_id}_slide_{slide_idx}_{int(time.time())}"
+    is_video = image_path.lower().endswith((".mp4", ".mov"))
+    public_id = f"resrise_posts/{post_id}_{'reel' if is_video else 'slide'}_{slide_idx}_{int(time.time())}"
 
-    res = cloudinary.uploader.upload(
-        jpeg_bytes,
-        public_id=public_id,
-        folder="resrise_posts",
-        resource_type="image",
-        format="jpg",
-    )
+    if is_video:
+        with open(image_path, "rb") as f:
+            video_bytes = f.read()
+        res = cloudinary.uploader.upload(
+            video_bytes,
+            public_id=public_id,
+            folder="resrise_posts",
+            resource_type="video",
+        )
+    else:
+        jpeg_bytes, _ = ensure_jpeg(image_path)
+        res = cloudinary.uploader.upload(
+            jpeg_bytes,
+            public_id=public_id,
+            folder="resrise_posts",
+            resource_type="image",
+            format="jpg",
+        )
     return res["secure_url"], res["public_id"]
 
 
@@ -148,9 +159,14 @@ def poll_container_status(client: httpx.Client, container_id: str, access_token:
     raise TimeoutError(f"Container {container_id} timed out waiting for FINISHED status after {max_wait}s.")
 
 
-def publish_carousel_api(item: dict) -> dict:
+def publish_post_api(item: dict) -> dict:
     """
-    Publishes a 3-slide carousel via official Meta Graph API v27.0.
+    Publishes a post via official Meta Graph API v27.0.
+    Dynamically branches by media type:
+    - Video (.mp4/.mov) -> REELS container
+    - Single image -> IMAGE container
+    - 2 to 10 images -> CAROUSEL container
+    Wires collaborators, tagged_users, and location_id where applicable.
     """
     account = item.get("account", "").lower()
     post_id = item.get("id", "post")
@@ -159,9 +175,10 @@ def publish_carousel_api(item: dict) -> dict:
     if not ig_user_id or not access_token:
         raise ValueError(f"Missing IG credentials for account @{account}. Set IG_ID_{account.upper()} and IG_TOKEN_{account.upper()} in .env.")
 
-    media_files = item.get("media_files", [])
+    # Accept both media_files and media_paths
+    media_files = item.get("media_files") or item.get("media_paths") or []
     if not media_files:
-        raise ValueError(f"No media_files found for post {post_id}.")
+        raise ValueError(f"No media files found for post {post_id} (checked media_files and media_paths).")
 
     # Absolute file paths
     abs_paths = [os.path.join(PROJECT_DIR, f) if not os.path.isabs(f) else f for f in media_files]
@@ -169,64 +186,128 @@ def publish_carousel_api(item: dict) -> dict:
         if not os.path.exists(p):
             raise FileNotFoundError(f"Media file not found: {p}")
 
-    public_ids_to_clean = []
-    item_container_ids = []
+    caption = item.get("caption", "").strip()
+    collaborators = item.get("collaborators") or []
+    location_id = item.get("location_id") or item.get("location")
+    tagged_users = item.get("tagged_users") or item.get("user_tags") or []
 
+    public_ids_to_clean = []
+    
     with httpx.Client(timeout=30.0) as client:
         try:
-            # 1. Upload slides to public HTTPS & create carousel item containers
-            log(f"Uploading {len(abs_paths)} slide(s) to temporary cloud storage for [id:{post_id}]...")
-            for idx, p in enumerate(abs_paths, 1):
-                cloud_url, pub_id = upload_slide_to_cloud(p, post_id, idx)
+            # Check if single video (REELS)
+            is_single_video = len(abs_paths) == 1 and abs_paths[0].lower().endswith((".mp4", ".mov"))
+
+            if is_single_video:
+                log(f"Detected video format. Uploading Reel for [id:{post_id}]...")
+                cloud_url, pub_id = upload_slide_to_cloud(abs_paths[0], post_id, 1)
                 public_ids_to_clean.append(pub_id)
 
-                # Create item container
-                log(f"Creating item container {idx}/{len(abs_paths)} for @{account}...")
-                item_payload = {
-                    "image_url": cloud_url,
-                    "is_carousel_item": "true",
+                reel_payload = {
+                    "media_type": "REELS",
+                    "video_url": cloud_url,
+                    "caption": caption,
                     "access_token": access_token,
                 }
-                res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=item_payload)
+                if collaborators and isinstance(collaborators, list):
+                    reel_payload["collaborators"] = json.dumps(collaborators)
+                if location_id and str(location_id).isdigit():
+                    reel_payload["location_id"] = str(location_id)
+
+                res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=reel_payload)
                 if res.status_code != 200:
-                    raise RuntimeError(f"Failed to create carousel item container {idx}: {res.text}")
-                item_cid = res.json().get("id")
-                item_container_ids.append(item_cid)
-                time.sleep(1.0)
+                    raise RuntimeError(f"Failed to create Reel container: {res.text}")
+                publish_cid = res.json().get("id")
 
-            # 2. Create Carousel parent container
-            caption = item.get("caption", "").strip()
-            log(f"Creating parent carousel container for [id:{post_id}]...")
-            carousel_payload = {
-                "media_type": "CAROUSEL",
-                "children": ",".join(item_container_ids),
-                "caption": caption,
-                "access_token": access_token,
-            }
-            res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=carousel_payload)
-            if res.status_code != 200:
-                raise RuntimeError(f"Failed to create parent carousel container: {res.text}")
-            carousel_cid = res.json().get("id")
+            elif len(abs_paths) == 1:
+                # Single Image
+                log(f"Detected single image. Uploading Image for [id:{post_id}]...")
+                cloud_url, pub_id = upload_slide_to_cloud(abs_paths[0], post_id, 1)
+                public_ids_to_clean.append(pub_id)
 
-            # 3. Safeguard: Poll status until FINISHED (Error 9007 Prevention)
-            log(f"Polling carousel container {carousel_cid} status...")
-            poll_container_status(client, carousel_cid, access_token, max_wait=60)
-            log(f"✅ Container {carousel_cid} is ready for publishing!")
+                image_payload = {
+                    "image_url": cloud_url,
+                    "caption": caption,
+                    "access_token": access_token,
+                }
+                if collaborators and isinstance(collaborators, list):
+                    image_payload["collaborators"] = json.dumps(collaborators)
+                if location_id and str(location_id).isdigit():
+                    image_payload["location_id"] = str(location_id)
+                if tagged_users and isinstance(tagged_users, list):
+                    # Meta expects user_tags as list of dicts: [{"username": "...", "x": 0.5, "y": 0.5}]
+                    formatted_tags = []
+                    for u in tagged_users:
+                        if isinstance(u, str):
+                            formatted_tags.append({"username": u.lstrip("@"), "x": 0.5, "y": 0.5})
+                        elif isinstance(u, dict):
+                            formatted_tags.append(u)
+                    if formatted_tags:
+                        image_payload["user_tags"] = json.dumps(formatted_tags)
 
-            # 4. Publish carousel
-            log(f"Publishing container {carousel_cid} to Instagram...")
+                res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=image_payload)
+                if res.status_code != 200:
+                    raise RuntimeError(f"Failed to create single Image container: {res.text}")
+                publish_cid = res.json().get("id")
+
+            else:
+                # Carousel (2 to 10 items)
+                if len(abs_paths) > 10:
+                    raise ValueError(f"Meta Graph API allows maximum 10 slides per carousel. Found {len(abs_paths)}.")
+                
+                log(f"Detected carousel ({len(abs_paths)} slides). Uploading slides for [id:{post_id}]...")
+                item_container_ids = []
+                for idx, p in enumerate(abs_paths, 1):
+                    cloud_url, pub_id = upload_slide_to_cloud(p, post_id, idx)
+                    public_ids_to_clean.append(pub_id)
+
+                    item_payload = {
+                        "image_url": cloud_url,
+                        "is_carousel_item": "true",
+                        "access_token": access_token,
+                    }
+                    res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=item_payload)
+                    if res.status_code != 200:
+                        raise RuntimeError(f"Failed to create carousel item container {idx}: {res.text}")
+                    item_cid = res.json().get("id")
+                    item_container_ids.append(item_cid)
+                    time.sleep(1.0)
+
+                carousel_payload = {
+                    "media_type": "CAROUSEL",
+                    "children": ",".join(item_container_ids),
+                    "caption": caption,
+                    "access_token": access_token,
+                }
+                if collaborators and isinstance(collaborators, list):
+                    carousel_payload["collaborators"] = json.dumps(collaborators)
+                if location_id and str(location_id).isdigit():
+                    carousel_payload["location_id"] = str(location_id)
+
+                res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=carousel_payload)
+                if res.status_code != 200:
+                    raise RuntimeError(f"Failed to create parent carousel container: {res.text}")
+                publish_cid = res.json().get("id")
+
+            # Safeguard: Poll status until FINISHED (Error 9007 Prevention)
+            log(f"Polling container {publish_cid} status...")
+            poll_container_status(client, publish_cid, access_token, max_wait=60)
+            log(f"✅ Container {publish_cid} is ready for publishing!")
+
+            # Publish container
+            log(f"Publishing container {publish_cid} to Instagram...")
             publish_payload = {
-                "creation_id": carousel_cid,
+                "creation_id": publish_cid,
                 "access_token": access_token,
             }
             res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media_publish", data=publish_payload)
             if res.status_code != 200:
-                raise RuntimeError(f"Failed to publish carousel container: {res.text}")
+                raise RuntimeError(f"Failed to publish container: {res.text}")
 
             published_ig_id = res.json().get("id")
             log(f"🎉 Successfully published [id:{post_id}] to @{account}! IG Media ID: {published_ig_id}")
 
-            # 5. Clean up temporary cloud assets
+            # Clean up temporary cloud assets
             cleanup_cloud_assets(public_ids_to_clean)
 
             return {"success": True, "ig_media_id": published_ig_id}
@@ -234,6 +315,10 @@ def publish_carousel_api(item: dict) -> dict:
         except Exception as e:
             cleanup_cloud_assets(public_ids_to_clean)
             raise e
+
+
+# Backwards compatibility alias
+publish_carousel_api = publish_post_api
 
 
 def dispatch_due_posts(force: bool = False, target_account: str = None) -> None:
