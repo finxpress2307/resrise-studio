@@ -263,15 +263,29 @@ def publish_post_api(item: dict) -> dict:
                     cloud_url, pub_id = upload_slide_to_cloud(p, post_id, idx)
                     public_ids_to_clean.append(pub_id)
 
-                    item_payload = {
-                        "image_url": cloud_url,
-                        "is_carousel_item": "true",
-                        "access_token": access_token,
-                    }
+                    is_vid = p.lower().endswith((".mp4", ".mov"))
+                    if is_vid:
+                        item_payload = {
+                            "media_type": "VIDEO",
+                            "video_url": cloud_url,
+                            "is_carousel_item": "true",
+                            "access_token": access_token,
+                        }
+                    else:
+                        item_payload = {
+                            "image_url": cloud_url,
+                            "is_carousel_item": "true",
+                            "access_token": access_token,
+                        }
                     res = client.post(f"{GRAPH_BASE_URL}/{ig_user_id}/media", data=item_payload)
                     if res.status_code != 200:
                         raise RuntimeError(f"Failed to create carousel item container {idx}: {res.text}")
                     item_cid = res.json().get("id")
+
+                    if is_vid:
+                        log(f"Polling video carousel item {idx} ({item_cid}) until FINISHED...")
+                        poll_container_status(client, item_cid, access_token, max_wait=60)
+
                     item_container_ids.append(item_cid)
                     time.sleep(1.0)
 

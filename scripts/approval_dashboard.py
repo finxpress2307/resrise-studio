@@ -78,6 +78,8 @@ def render_page(queue: list, filter_status: str = "SCHEDULED", filter_account: s
         existing_imgs = [p for p in media_list if os.path.exists(p)]
         if existing_imgs:
             thumbs = "".join(
+                f'<video src="/media?path={urllib.parse.quote(p)}" controls muted playsinline style="width:100%; max-height:220px; border-radius:6px; object-fit:cover;"></video>'
+                if p.lower().endswith((".mp4", ".mov")) else
                 f'<img src="/media?path={urllib.parse.quote(p)}" alt="slide" />'
                 for p in existing_imgs
             )
@@ -233,7 +235,14 @@ class DashboardHandler(BaseHTTPRequestHandler):
             if os.path.exists(target) and os.path.isfile(target):
                 self.send_response(200)
                 ext = os.path.splitext(target)[1].lower()
-                mime = "image/png" if ext == ".png" else "image/jpeg"
+                if ext in (".mp4", ".m4v"):
+                    mime = "video/mp4"
+                elif ext == ".mov":
+                    mime = "video/quicktime"
+                elif ext == ".png":
+                    mime = "image/png"
+                else:
+                    mime = "image/jpeg"
                 self.send_header("Content-Type", mime)
                 self.send_header("Cache-Control", "max-age=3600")
                 self.end_headers()
