@@ -4,7 +4,7 @@
 ================================================================================
 
 PROJECT DIRECTORY:
-cd "D:\social media\resrise-studio"
+cd "C:\resrise-studio"
 
 ALL 5 ACCOUNTS:
 1. @avanyamehra        (Editorial & High-Fashion Model)
@@ -18,7 +18,7 @@ ALL 5 ACCOUNTS:
 1. ONE-TIME LOGIN (Run once per account, log in, then close Chrome)
 --------------------------------------------------------------------------------
 
-cd "D:\social media\resrise-studio"
+cd "C:\resrise-studio"
 
 python scripts\login.py --account avanyamehra
 python scripts\login.py --account mairamehraofficial
@@ -32,11 +32,11 @@ python scripts\login.py --account gagankumarrocks
 --------------------------------------------------------------------------------
 
 Preview all bios with exact character counts:
-python update_bios.py
+python scripts\update_bios.py
 
 Apply automatically to Instagram:
-python update_bios.py --account all --apply
-(Or single account: python update_bios.py --account mairamehraofficial --apply)
+python scripts\update_bios.py --account all --apply
+(Or single account: python scripts\update_bios.py --account mairamehraofficial --apply)
 
 Exact Copy-Paste Text:
 
@@ -87,26 +87,26 @@ python launch_parallel_terminals.py
 python launch_parallel_terminals.py --accounts avanyamehra mairamehraofficial iamgagankumar resrise gagankumarrocks
 
 # PowerShell One-Liner for all 5:
-@("avanyamehra","mairamehraofficial","iamgagankumar","resrise","gagankumarrocks") | ForEach-Object { Start-Process powershell -WorkingDirectory "D:\social media\resrise-studio" -ArgumentList "-NoExit", "-Command", "`$Host.UI.RawUI.WindowTitle = '[Automation] @$_'; python run_account.py --account $_ --mode both" }
+@("avanyamehra","mairamehraofficial","iamgagankumar","resrise","gagankumarrocks") | ForEach-Object { Start-Process powershell -WorkingDirectory "C:\resrise-studio" -ArgumentList "-NoExit", "-Command", "`$Host.UI.RawUI.WindowTitle = '[Automation] @$_'; python scripts\run_account.py --account $_ --mode both" }
 
 
 --------------------------------------------------------------------------------
 4. DEDICATED SINGLE ACCOUNT RUNNER (Full loop: Feed + Stories + Replies)
 --------------------------------------------------------------------------------
 
-cd "D:\social media\resrise-studio"
-python run_account.py --account avanyamehra --mode both
-python run_account.py --account mairamehraofficial --mode both
-python run_account.py --account iamgagankumar --mode both
-python run_account.py --account resrise --mode both
-python run_account.py --account gagankumarrocks --mode both
+cd "C:\resrise-studio"
+python scripts\run_account.py --account avanyamehra --mode both
+python scripts\run_account.py --account mairamehraofficial --mode both
+python scripts\run_account.py --account iamgagankumar --mode both
+python scripts\run_account.py --account resrise --mode both
+python scripts\run_account.py --account gagankumarrocks --mode both
 
 
 --------------------------------------------------------------------------------
 5. FEED BROWSING & VISION COMMENTING (ig_browsing.py)
 --------------------------------------------------------------------------------
 
-cd "D:\social media\resrise-studio"
+cd "C:\resrise-studio"
 python scripts\ig_browsing.py --account avanyamehra
 python scripts\ig_browsing.py --account mairamehraofficial
 python scripts\ig_browsing.py --account iamgagankumar
@@ -119,7 +119,7 @@ python scripts\ig_browsing.py --account gagankumarrocks
    (Multimodal Vision AI; checks threads to skip already-answered comments)
 --------------------------------------------------------------------------------
 
-cd "D:\social media\resrise-studio"
+cd "C:\resrise-studio"
 python scripts\ig_replier.py --account avanyamehra
 python scripts\ig_replier.py --account mairamehraofficial
 python scripts\ig_replier.py --account iamgagankumar
