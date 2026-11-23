@@ -14,7 +14,7 @@ from datetime import datetime
 from prepare_instagram_media import process_image_for_instagram
 
 PROJECT_DIR = r"c:\resrise-studio"
-SANDBOX_DOWNLOADS = r"C:\Users\Gagan\.gemini\antigravity\brain\92c329d9-663a-4239-89b1-10cfe0b8e3a9\browser_sandbox\downloads"
+SANDBOX_DOWNLOADS = os.path.join(os.path.expanduser("~"), "Downloads")
 DRAFT_DIR = os.path.join(PROJECT_DIR, "draft_media")
 QUEUE_PATH = os.path.join(PROJECT_DIR, "swarm_queue.json")
 TELEGRAM_QUEUE_PATH = os.path.join(PROJECT_DIR, "telegram_drops_queue.json")

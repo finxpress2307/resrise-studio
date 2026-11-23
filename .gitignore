@@ -44,6 +44,13 @@ draft_media_archive/
 comment_drafts_*.json
 replied_comments_cache_*.json
 commented_posts_cache_*.json
+commented_posts_global_cache.json
+generated_comments_history.json
+generated_replies_history.json
+replied_users_history.json
+dm_sent_history.json
+sent_telegram_drops.json
+telegram_drops_queue.json
 swarm_queue.json
 
 # Temporary root test images & screenshots

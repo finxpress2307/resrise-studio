@@ -15,10 +15,10 @@
   },
   "earnkaro": {
     "enabled": true,
-    "user_id": "5804190",
-    "user_name": "Gagan Kumar",
-    "account_email": "contact.resrise@gmail.com",
-    "referral_code": "5804190",
+    "user_id": "REPLACE_WITH_YOUR_ID",
+    "user_name": "Resrise Creator",
+    "account_email": "contact@yourdomain.com",
+    "referral_code": "REPLACE_WITH_YOUR_CODE",
     "subid_patterns": {
       "avanyamehra": "avanya_luxe_{look_id}",
       "mairamehraofficial": "maira_saree_{look_id}",

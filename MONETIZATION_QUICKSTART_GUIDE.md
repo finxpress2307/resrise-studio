@@ -81,7 +81,7 @@ Your credentials and bank connections are fully active and integrated into [affi
     "enabled": true,
     "primary_tag": "gaganresrise-21",
     "marketplace": "amazon.in",
-    "bank_status": "APPROVED (Punjab & Sind Bank ****560)",
+    "bank_status": "CONFIGURED_IN_DASHBOARD",
     "tracking_ids": {
       "avanyamehra": "gaganresrise-21",
       "mairamehraofficial": "gaganresrise-21",
@@ -100,7 +100,7 @@ Your credentials and bank connections are fully active and integrated into [affi
 }
 ```
 
-3. **Status: 100% Active!** Every automated Instagram comment, Telegram VIP vault drop, and bio link now earns commissions deposited directly into your Punjab & Sind Bank account.
+3. **Status: 100% Active!** Every automated Instagram comment, Telegram VIP vault drop, and bio link now earns commissions deposited directly into your payout account.
 
 ---
 

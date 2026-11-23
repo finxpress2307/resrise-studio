@@ -5,7 +5,7 @@
     "primary_tag": "gaganresrise-21",
     "marketplace": "amazon.in",
     "fallback_search_base": "https://www.amazon.in/s",
-    "bank_status": "APPROVED (Punjab & Sind Bank ****560)",
+    "bank_status": "CONFIGURED_IN_DASHBOARD",
     "tracking_ids": {
       "avanyamehra": "gaganresrise-21",
       "mairamehraofficial": "gaganresrise-21",
@@ -16,10 +16,10 @@
   },
   "earnkaro": {
     "enabled": true,
-    "user_id": "5804190",
-    "user_name": "gagan kumar",
-    "account_email": "contact.resrise@gmail.com",
-    "referral_code": "5804190",
+    "user_id": "REPLACE_WITH_YOUR_ID",
+    "user_name": "Resrise Creator",
+    "account_email": "contact@yourdomain.com",
+    "referral_code": "REPLACE_WITH_YOUR_CODE",
     "subid_patterns": {
       "avanyamehra": "avanya_luxe_{look_id}",
       "mairamehraofficial": "maira_saree_{look_id}",

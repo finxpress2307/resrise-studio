@@ -6,7 +6,7 @@ import time
 
 ACCOUNTS = ["avanyamehra", "mairamehraofficial", "iamgagankumar", "resrise", "gagankumarrocks"]
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-PYTHON_EXE = sys.executable or r"C:\Users\Gagan\AppData\Local\Programs\Python\Python313\python.exe"
+PYTHON_EXE = sys.executable or "python"
 
 
 def launch_account_terminal(
