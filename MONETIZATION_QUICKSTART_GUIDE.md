@@ -92,10 +92,10 @@ Your credentials and bank connections are fully active and integrated into [affi
   },
   "earnkaro": {
     "enabled": true,
-    "user_id": "5804190",
-    "user_name": "gagan kumar",
-    "account_email": "contact.resrise@gmail.com",
-    "referral_code": "5804190"
+    "user_id": "YOUR_EARNKARO_ID",
+    "user_name": "YOUR_NAME",
+    "account_email": "contact@yourdomain.com",
+    "referral_code": "YOUR_REFERRAL_CODE"
   }
 }
 ```
