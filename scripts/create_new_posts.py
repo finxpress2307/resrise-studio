@@ -20,27 +20,28 @@ NEW_POSTS = [
         "day_index": 15,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Modern Festive Organza & Antique Kundan Jewelry",
         "location": "City Palace, Udaipur, Rajasthan, India",
         "viral_score": 98,
         "viral_reason": "High-intent wedding guest pastel organza saree + Kundan choker generates massive saves and affiliate conversions.",
-        "image_prompt": "Editorial fashion portrait of creator MAIRA in an exquisite pastel blush pink organza saree with scalloped antique gold zari border and antique Kundan choker in Udaipur courtyard, 85mm f/1.4.",
+        "image_prompt": "Candid smartphone photo of Maira Mehra in an exquisite pastel blush pink organza saree with scalloped antique gold zari border and antique Kundan choker in Udaipur courtyard. Natural direct sunlight, real skin pores and stray hairs, mid-laugh candid hair-touch pose, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "Ethereal mornings in Udaipur. When delicate pastel organza meets timeless scalloped zari craftsmanship. 🌸✨\r\n\r\n"
-            "There's something truly magical about hand-embroidered drapes catching the golden hour sun. Paired this with an antique Kundan choker set.\r\n\r\n"
-            "Save this drape for upcoming winter weddings.\r\n"
-            "Full saree source & styling links in my bio club ⤵\r\n\r\n"
-            "#MairaMehra #OrganzaSaree #PastelDrapes #KundanChoker #WeddingGuestStyle #IndianCouture #ResriseStudio"
+            "Draping took 5 mins, photos took 50 🌸✨\r\n\r\n"
+            "Exact saree source & choker pinned in my bio club ⤵\r\n\r\n"
+            "#MairaMehra #OrganzaSaree #DesiOOTD #WeddingSeason #EthnicVibes"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day15_maira_organza_choker.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day15_maira_organza_choker.jpg")
         ],
         "collaborators": ["resrise"],
         "tagged_users": ["resrise"],
         "scheduled_for": "2026-11-23 09:00 AM",
         "alt_texts": [
-            "Editorial fashion portrait of @mairamehraofficial in a pastel blush pink floral embroidered organza saree with scalloped antique gold zari border and Kundan choker set, 85mm optical portrait lens."
+            "Candid smartphone photo of @mairamehraofficial in a pastel blush pink organza saree with scalloped gold zari border and Kundan choker set, 4:5 vertical natural light."
         ],
         "telegram_drop": (
             "💎 **MAIRA MEHRA VIP DROP: Pastel Blush Organza & Kundan Edit**\n\n"
@@ -64,27 +65,28 @@ NEW_POSTS = [
         "day_index": 14,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Royal Heritage Couture & Kanjivaram Silk",
         "location": "City Palace, Jaipur, Rajasthan, India",
         "viral_score": 99,
         "viral_reason": "SWORNOF Amazon bestseller soft silk saree with heavy gold zari triggers instant impulse orders.",
-        "image_prompt": "Regal portrait of Maira Mehra inside City Palace Jaipur wearing royal emerald green Kanjivaram soft silk saree with heavy authentic gold zari brocade, 85mm f/1.4.",
+        "image_prompt": "Candid smartphone photo of Maira Mehra inside City Palace Jaipur wearing royal emerald green Kanjivaram soft silk saree with heavy authentic gold zari brocade. Natural direct sunlight casting warm shadows, real skin pores and stray hairs, candid mid-laugh glance, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "When heritage speaks in gold zari and pure emerald silk. Captured at City Palace, Jaipur. 👑✨\r\n\r\n"
-            "Every fold carries generations of handloom grace. The heavy brocade pallu and traditional temple border make this the ultimate wedding season statement.\r\n\r\n"
-            "Save for your bridal & festive moodboard.\r\n"
-            "Curated saree source & blouse styling in bio club ⤵\r\n\r\n"
-            "#MairaMehra #KanjivaramSilk #RoyalHeritage #EmeraldSaree #GoldZari #WeddingSeason #ResriseStudio"
+            "Mummy approved this saree in 2 seconds 👑🌸\r\n\r\n"
+            "Curated silk saree & blouse link in bio club ⤵\r\n\r\n"
+            "#MairaMehra #KanjivaramSilk #RoyalHeritage #DesiOOTD #SareeLove"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day14_maira_royal_silk_saree.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day14_maira_royal_silk_saree.jpg")
         ],
         "collaborators": ["resrise"],
         "tagged_users": ["resrise"],
         "scheduled_for": "2026-11-24 09:00 AM",
         "alt_texts": [
-            "Regal portrait of @mairamehraofficial in an emerald green Kanjivaram pure soft silk saree with heavy gold zari brocade pallu at City Palace Jaipur, 85mm f/1.4."
+            "Candid smartphone portrait of @mairamehraofficial in an emerald green Kanjivaram soft silk saree with heavy gold zari brocade at City Palace Jaipur, 4:5 vertical."
         ],
         "telegram_drop": (
             "👑 **ROYAL WEDDING CURATION: Emerald Kanjivaram Soft Silk**\n\n"
@@ -99,7 +101,47 @@ NEW_POSTS = [
         )
     },
 
-    # ---------------- 3. AVANYA MEHRA (Parisian Tailored Double-Breasted Blazer) ----------------
+    # ---------------- 3. MAIRA MEHRA REEL (Organza Saree 4-6s Slow Turn & Hair-Flip) ----------------
+    {
+        "id": generate_id(),
+        "account": "mairamehraofficial",
+        "display_name": "Maira Mehra",
+        "day_index": 16,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Reel (9:16)",
+        "pillar": "Modern Festive Organza Draping Motion",
+        "location": "Udaipur Courtyard, Rajasthan, India",
+        "viral_score": 99,
+        "viral_reason": "4-6s slow turn motion with natural wind flutter and authentic mid-laugh glance drives high Instagram Reel completion rate.",
+        "image_prompt": "Raw smartphone 9:16 vertical video of Maira Mehra in a blush pink organza saree with gold zari border. 4-6s slow turn and gentle hair-flip motion in golden-hour courtyard light, candid laughing glance toward camera, warm lens flare, real skin pores and stray flyaway hairs, natural handheld camera motion, authentic unpolished Instagram Reel realism.",
+        "caption": (
+            "Golden hour pe ye drape... no filter needed 🌸✨\r\n\r\n"
+            "Full saree source & styling links in my bio club ⤵\r\n\r\n"
+            "#MairaMehra #SareeReel #DesiVibe #WeddingDrape #SareeLove"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "reel_maira_organza_turn.mp4")
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "reel_maira_organza_turn.mp4")
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-25 09:00 AM",
+        "alt_texts": [
+            "Raw smartphone 9:16 vertical video reel of @mairamehraofficial doing a slow turn and hair-flip in a blush pink organza saree with golden hour sunlight."
+        ],
+        "telegram_drop": (
+            "🌸 **REEL DROP: Pastel Organza Motion Edit**\n\n"
+            "Catch the motion in today's reel:\n"
+            "• Saree: Hand-Embroidered Pastel Blush Organza with Scalloped Zari (₹2,199)\n"
+            "👉 [Amazon Saree Search](https://www.amazon.in/s?k=organza+silk+floral+embroidered+saree+with+scalloped+border&tag=gaganresrise-21)\n"
+            "📌 Pinned in VIP Club. #affiliate"
+        )
+    },
+
+    # ---------------- 4. AVANYA MEHRA (Parisian Tailored Double-Breasted Blazer) ----------------
     {
         "id": generate_id(),
         "account": "avanyamehra",
@@ -107,27 +149,28 @@ NEW_POSTS = [
         "day_index": 14,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Parisian Minimalist Tailoring & Quiet Luxury",
         "location": "Place Vendôme, Paris, France",
         "viral_score": 97,
         "viral_reason": "High-fashion minimalist tailoring aesthetic delivers strong affiliate conversion among urban Tier-1 professionals.",
-        "image_prompt": "Editorial street style portrait of Avanya Mehra at Place Vendôme Paris in an oversized double-breasted charcoal wool blazer, Leica M11 50mm f/1.4.",
+        "image_prompt": "Candid smartphone photo of Avanya Mehra at Place Vendôme Paris in an oversized double-breasted charcoal wool blazer. Subtle natural direct sunlight, real skin pores and stray hairs, mid-laugh candid hair-touch pose, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "Structure, restraint, and the timeless geometry of Paris. 🖤\r\n\r\n"
-            "An oversized, double-breasted wool blazer paired with wide-leg tailoring is the ultimate quiet luxury blueprint.\r\n\r\n"
-            "Minimalism is never about less — it's about precision.\r\n"
-            "Editorial garment sources & luxury dupes in bio ⤵\r\n\r\n"
-            "#AvanyaMehra #ParisTailoring #PlaceVendome #QuietLuxury #StructuredBlazer #OldMoneyAesthetic #ResriseStudio"
+            "Running 10 mins late as usual 🥐☕\r\n\r\n"
+            "Exact blazer & fit breakdown pinned in bio vault 🤍\r\n\r\n"
+            "#AvanyaMehra #ParisOOTD #QuietLuxury #StreetStyle #LuxeVault"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "avanyamehra", "day14_avanya_paris_blazer.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "avanyamehra", "day14_avanya_paris_blazer.jpg")
         ],
         "collaborators": ["resrise"],
         "tagged_users": ["resrise"],
         "scheduled_for": "2026-11-23 06:00 AM",
         "alt_texts": [
-            "Editorial street style portrait of @avanyamehra walking past Parisian stone colonnades in an oversized double-breasted charcoal wool blazer, Leica M11 50mm."
+            "Candid smartphone street photo of @avanyamehra in an oversized double-breasted charcoal blazer at Place Vendôme Paris, 4:5 vertical."
         ],
         "telegram_drop": (
             "✨ **AVANYA MEHRA LUXE VAULT: Parisian Tailoring Edit**\n\n"
@@ -142,7 +185,46 @@ NEW_POSTS = [
         )
     },
 
-    # ---------------- 4. IAMGAGANKUMAR (Pure French Linen Camp Collar Shirt) ----------------
+    # ---------------- 5. AVANYA MEHRA REEL (Cowl Dress Parisian Hair-Flip Reel) ----------------
+    {
+        "id": generate_id(),
+        "account": "avanyamehra",
+        "display_name": "Avanya Mehra",
+        "day_index": 15,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Reel (9:16)",
+        "pillar": "Evening Cowl Gowns & Parisian Movement",
+        "location": "Pont Alexandre III, Paris, France",
+        "viral_score": 98,
+        "viral_reason": "4-6s slow turn and hair-flip in golden-hour Parisian breeze generates massive saves and non-follower Discovery.",
+        "image_prompt": "Raw smartphone 9:16 vertical video of Avanya Mehra in a draped mocha cowl maxi dress walking through a Parisian street at sunset. 4-6s slow turn and candid hair-flip motion, gentle breeze catching stray hairs, mid-laugh glancing at camera, natural golden hour backlight, subtle handheld smartphone motion, authentic unpolished realism.",
+        "caption": (
+            "Subtle flex, zero noise 🤎✨\r\n\r\n"
+            "Cowl dress & jewelry sources linked in bio vault ⤵\r\n\r\n"
+            "#AvanyaMehra #CowlDress #ParisVibes #QuietLuxury #LuxeEdit"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "avanyamehra", "reel_avanya_cowl_flip.mp4")
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "avanyamehra", "reel_avanya_cowl_flip.mp4")
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-24 06:00 AM",
+        "alt_texts": [
+            "Raw smartphone 9:16 vertical video reel of @avanyamehra doing a slow turn and hair-flip in a draped mocha cowl maxi dress at sunset."
+        ],
+        "telegram_drop": (
+            "🤎 **AVANYA MEHRA REEL DROP: Cowl Dress Silhouette**\n\n"
+            "Featured in today's Parisian sunset reel:\n"
+            "👉 [Amazon Cowl Dress Search](https://www.amazon.in/s?k=women+draped+cowl+neck+sleeveless+bodycon+maxi+dress+brown&tag=gaganresrise-21)\n"
+            "👉 [VIP Luxe Vault](https://t.me/avanyamehra_luxe) #affiliate"
+        )
+    },
+
+    # ---------------- 6. IAMGAGANKUMAR (Pure French Linen Camp Collar Shirt) ----------------
     {
         "id": generate_id(),
         "account": "iamgagankumar",
@@ -150,26 +232,28 @@ NEW_POSTS = [
         "day_index": 14,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Resort Menswear & Niche Grooming",
         "location": "Connaught Place, New Delhi, India",
         "viral_score": 96,
         "viral_reason": "Old-money linen shirt + signature perfume combo converts at high volume with Indian male buyers.",
-        "image_prompt": "Editorial portrait of Gagan Kumar in a relaxed sage green pure French linen camp-collar shirt with rolled sleeves in a sunlit courtyard, 50mm f/1.8.",
+        "image_prompt": "Candid smartphone photo of Gagan Kumar in a relaxed sage green pure French linen camp-collar shirt with rolled sleeves in a sunlit courtyard. Natural direct sunlight, real skin pores and stray hairs, candid mid-laugh wrist-check pose, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "Old-money resort discipline: French linen, clean cuts, and uncompromised grooming. ⚡\r\n\r\n"
-            "A sage green linen shirt with rolled sleeves and tailored trousers is the easiest high-status uniform any man can wear.\r\n\r\n"
-            "Capsule menswear breakdown & signature scent links in bio ⤵\r\n\r\n"
-            "#GaganKumar #MenswearCapsule #LinenShirt #OldMoneyMen #GroomingEssentials #TailoredStyle #ResriseStudio"
+            "Linen season rules: keep it simple, keep it sharp ⚡\r\n\r\n"
+            "Capsule fit & signature scent details in bio capsule ⤵\r\n\r\n"
+            "#GaganKumar #MenswearCapsule #LinenFit #MensStyle #DelhiFit"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "iamgagankumar", "day14_gagan_linen_shirt.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "iamgagankumar", "day14_gagan_linen_shirt.jpg")
         ],
         "collaborators": ["resrise"],
         "tagged_users": ["resrise"],
         "scheduled_for": "2026-11-23 12:00 PM",
         "alt_texts": [
-            "Editorial menswear portrait of @iamgagankumar in a relaxed sage green pure French linen camp-collar shirt and vintage steel wristwatch, 50mm f/1.8."
+            "Candid smartphone menswear photo of @iamgagankumar in a relaxed sage green French linen shirt, 4:5 vertical natural light."
         ],
         "telegram_drop": (
             "⚡ **MEN'S CAPSULE CLUB: The French Linen & Signature Scent Blueprint**\n\n"
@@ -184,7 +268,46 @@ NEW_POSTS = [
         )
     },
 
-    # ---------------- 5. GAGANKUMARROCKS (Creator Desk Setup & Dynamic Mic) ----------------
+    # ---------------- 7. IAMGAGANKUMAR REEL (Black Velvet Bandhgala Motion Reel) ----------------
+    {
+        "id": generate_id(),
+        "account": "iamgagankumar",
+        "display_name": "Gagan Kumar",
+        "day_index": 15,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Reel (9:16)",
+        "pillar": "Modern Heritage Menswear & Evening Tailoring",
+        "location": "Heritage Haveli, New Delhi, India",
+        "viral_score": 98,
+        "viral_reason": "4-6s slow turn motion adjusting cuff in tailored velvet bandhgala creates high aspirational engagement for festive season.",
+        "image_prompt": "Raw smartphone 9:16 vertical video of Gagan Kumar in a black tailored velvet bandhgala suit jacket outside a heritage wedding venue at night. Subtle night-time on-camera flash, 4-6s slow turn adjusting cuff and candid half-smile toward camera, natural grain and real skin texture, handheld phone movement, authentic Instagram Reel realism.",
+        "caption": (
+            "Bandhgala fitting right for tonight's wedding 🖤⚡\r\n\r\n"
+            "Direct bandhgala & scent links in bio capsule ⤵\r\n\r\n"
+            "#GaganKumar #Bandhgala #DesiMenswear #WeddingFit #MensStyle"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "iamgagankumar", "reel_gagan_bandhgala_turn.mp4")
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "iamgagankumar", "reel_gagan_bandhgala_turn.mp4")
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-24 12:00 PM",
+        "alt_texts": [
+            "Raw smartphone 9:16 vertical video reel of @iamgagankumar adjusting cuffs in a black tailored velvet bandhgala at night."
+        ],
+        "telegram_drop": (
+            "🖤 **REEL DROP: Black Velvet Bandhgala Edit**\n\n"
+            "Featured in tonight's wedding fit reel:\n"
+            "👉 [Amazon Bandhgala Collection](https://www.amazon.in/s?k=men+black+velvet+bandhgala+suit+jacket+wedding&tag=gaganresrise-21)\n"
+            "👉 [Men's Capsule Community](https://t.me/gagankumar_menswear) #affiliate"
+        )
+    },
+
+    # ---------------- 8. GAGANKUMARROCKS (Creator Desk Setup & Dynamic Mic) ----------------
     {
         "id": generate_id(),
         "account": "gagankumarrocks",
@@ -192,29 +315,28 @@ NEW_POSTS = [
         "day_index": 1,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Creator Media Systems & High-Ticket Tech Setup",
         "location": "Aerocity, New Delhi, India",
         "viral_score": 96,
         "viral_reason": "High-production creator desk aesthetic + high-ticket podcast mic ($70+) triggers high tech commission earnings.",
-        "image_prompt": "Editorial creator desk setup featuring Gagan Kumar with a matte black broadcast microphone on a boom arm and 75% mechanical keyboard at twilight, 35mm f/2.0.",
+        "image_prompt": "Candid smartphone photo of Gagan Kumar at his creator workstation with matte black broadcast mic and 75% mechanical keyboard at twilight. Natural ambient desk lighting and subtle on-camera fill, real skin pores and stray hairs, mid-laugh candid pose adjusting headphones, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "Your workspace is the physical operating system of your mind. 🚀\r\n\r\n"
-            "When you're scaling autonomous digital production, tactile tools matter:\r\n"
-            "1. Dynamic broadcast audio (USB/XLR cardioid pickup)\r\n"
-            "2. Tactile 75% mechanical switches for high-flow writing\r\n"
-            "3. Ambient lighting calibrated for deep focus\r\n\r\n"
-            "Full studio desk stack & tech specs linked in bio ⤵\r\n\r\n"
-            "#GaganKumarRocks #CreatorDesk #DeskSetup #TechEntrepreneur #MediaSystems #PodcastingSetup #Resrise"
+            "Late night desk flow, bina kisi distraction ke 🚀\r\n\r\n"
+            "Full studio desk stack & tech specs in bio link ⤵\r\n\r\n"
+            "#GaganKumarRocks #CreatorDesk #DeskSetup #TechSetup #MediaSystems"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "gagankumarrocks", "day01_gagan_creator_desk_setup.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "gagankumarrocks", "day01_gagan_creator_desk_setup.jpg")
         ],
         "collaborators": ["resrise"],
         "tagged_users": ["resrise"],
         "scheduled_for": "2026-11-23 06:00 PM",
         "alt_texts": [
-            "Editorial creator desk setup featuring @gagankumarrocks with a matte black studio broadcast microphone and 75% wireless mechanical keyboard at twilight, 35mm f/2.0."
+            "Candid smartphone photo of @gagankumarrocks at his creator workstation with a broadcast mic and keyboard at twilight, 4:5 vertical."
         ],
         "telegram_drop": (
             "🚀 **MEDIA SYSTEMS DISPATCH #01: The Studio Desk Architecture**\n\n"
@@ -229,7 +351,46 @@ NEW_POSTS = [
         )
     },
 
-    # ---------------- 6. RESRISE (Amalfi Production Campaign & 100W COB Light) ----------------
+    # ---------------- 9. GAGANKUMARROCKS REEL (Workstation Audio & Setup Motion Reel) ----------------
+    {
+        "id": generate_id(),
+        "account": "gagankumarrocks",
+        "display_name": "Gagan Kumar",
+        "day_index": 2,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Reel (9:16)",
+        "pillar": "Autonomous Creator Systems & Studio Audio Test",
+        "location": "Aerocity Studio, New Delhi, India",
+        "viral_score": 97,
+        "viral_reason": "4-6s slow turn pulling podcast mic close with RGB twilight desk ambient glow sparks high tech desk curiosity.",
+        "image_prompt": "Raw smartphone 9:16 vertical video of Gagan Kumar at his creator desk pulling the broadcast boom mic closer. 4-6s slow turn and candid nod to the beat, ambient RGB twilight glow, real skin pores and unstyled hair, handheld smartphone shake, raw authentic build-in-public Reel realism.",
+        "caption": (
+            "Zero noise, pure audio test 🎙️🔥\r\n\r\n"
+            "Workspace tech & mic specs pinned in bio ⤵\r\n\r\n"
+            "#GaganKumarRocks #PodcastSetup #DeskTour #CreatorTech #Workstation"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "gagankumarrocks", "reel_gagan_audio_check.mp4")
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "gagankumarrocks", "reel_gagan_audio_check.mp4")
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-24 06:00 PM",
+        "alt_texts": [
+            "Raw smartphone 9:16 vertical video reel of @gagankumarrocks pulling a broadcast boom mic closer at his desk."
+        ],
+        "telegram_drop": (
+            "🎙️ **TECH REEL DROP: Studio Broadcast Audio**\n\n"
+            "Direct links for today's mic test:\n"
+            "👉 [Amazon Studio Mic](https://www.amazon.in/s?k=dynamic+studio+podcast+microphone+usb+xlr+cardioid&tag=gaganresrise-21)\n"
+            "👉 [Media Systems Community](https://t.me/gagankumar_growth) #affiliate"
+        )
+    },
+
+    # ---------------- 10. RESRISE (Amalfi Production Campaign & 100W COB Light) ----------------
     {
         "id": generate_id(),
         "account": "resrise",
@@ -237,28 +398,28 @@ NEW_POSTS = [
         "day_index": 1,
         "status": "APPROVED",
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "format": "Single Post (3:4)",
+        "format": "Single Post (4:5)",
         "pillar": "Creative Production & Studio Gear",
         "location": "Amalfi Coast, Campania, Italy",
         "viral_score": 99,
         "viral_reason": "High-end Amalfi coastal campaign establishes studio authority and sells high-ticket continuous studio lights.",
-        "image_prompt": "Resrise Studio luxury fashion campaign on a Positano cliffside terrace with continuous 100W COB studio video light and softbox, Hasselblad 35mm wide.",
+        "image_prompt": "Candid smartphone photo of Resrise Studio production team setting up on a Positano cliffside terrace with continuous 100W COB video light and softbox overlooking the sea. Natural direct sunlight, real skin pores and stray hairs, candid mid-laugh pose adjusting light reflector, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching.",
         "caption": (
-            "Production Spotlight: Amalfi Campaign Volume I. 🌊✨\r\n\r\n"
-            "Where cinematic realism meets autonomous creative direction. Captured on location with high-end continuous COB studio illumination and medium-format optics.\r\n\r\n"
-            "Resrise Studio engineers high-converting visual IP, virtual muses, and editorial campaigns for global brands.\r\n\r\n"
-            "Explore our client deck & gear breakdown in bio ⤵\r\n"
-            "Inquiries: contact.resrise@gmail.com\r\n\r\n"
-            "#ResriseStudio #CreativeProduction #VisualCampaign #HighFashion #StudioLighting #AmalfiEditorial #DigitalMuses"
+            "Raw frames straight out of camera on set 🌊📸\r\n\r\n"
+            "Client production deck & gear specs in bio link ⤵\r\n\r\n"
+            "#ResriseStudio #SetLife #CreativeStudio #StudioGear #CreatorAgency"
         ),
         "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "resrise", "day01_resrise_luxury_production_campaign.jpg")
+        ],
+        "media_files": [
             os.path.join(PROJECT_DIR, "draft_media", "resrise", "day01_resrise_luxury_production_campaign.jpg")
         ],
         "collaborators": ["avanyamehra"],
         "tagged_users": ["avanyamehra", "gagankumarrocks"],
         "scheduled_for": "2026-11-23 03:00 PM",
         "alt_texts": [
-            "Resrise Studio luxury fashion campaign on a Positano cliffside terrace overlooking the Mediterranean sea with professional continuous studio video lighting equipment, 35mm wide."
+            "Candid smartphone photo of @resrise production team adjusting a continuous video light on a Positano cliff terrace, 4:5 vertical."
         ],
         "telegram_drop": (
             "✨ **RESRISE STUDIO VIP ROSTER: Amalfi Campaign Vol. I**\n\n"
@@ -270,6 +431,45 @@ NEW_POSTS = [
             "👉 [Amazon Verified Studio COB Lighting](https://www.amazon.in/s?k=cob+continuous+video+light+100w+bowens+mount+softbox&tag=gaganresrise-21)\n"
             "👉 [EarnKaro Studio Gear Deal](https://topdeal.app.link/resrise-studio-light?subid=resrise_studio_service1)\n\n"
             "👉 [Join Resrise Studio Hub](https://t.me/resrise_studio) #affiliate"
+        )
+    },
+
+    # ---------------- 11. RESRISE REEL (Positano Sunset Production Wrap Reel) ----------------
+    {
+        "id": generate_id(),
+        "account": "resrise",
+        "display_name": "Resrise Studio",
+        "day_index": 2,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Reel (9:16)",
+        "pillar": "Autonomous Studio Production BTS",
+        "location": "Positano Cliffside Terrace, Italy",
+        "viral_score": 98,
+        "viral_reason": "4-6s slow turn panning across Positano golden hour cliffside to sunset ocean horizon captivates creator audiences.",
+        "image_prompt": "Raw smartphone 9:16 vertical video on Positano cliffside terrace during production wrap. 4-6s slow turn panning from continuous COB light to sunset ocean horizon, candid crew laughter, natural golden-hour lens flare, handheld smartphone motion, authentic behind-the-scenes Reel aesthetic.",
+        "caption": (
+            "Golden hour lighting test on set 🎬✨\r\n\r\n"
+            "Studio gear list & client retainers in bio link ⤵\r\n\r\n"
+            "#ResriseStudio #BehindTheScenes #VisualProduction #ProductionGear #CreatorAgency"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "resrise", "reel_resrise_amalfi_bts.mp4")
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "resrise", "reel_resrise_amalfi_bts.mp4")
+        ],
+        "collaborators": ["avanyamehra"],
+        "tagged_users": ["avanyamehra", "gagankumarrocks"],
+        "scheduled_for": "2026-11-24 03:00 PM",
+        "alt_texts": [
+            "Raw smartphone 9:16 vertical video reel of @resrise production set on a Positano cliff overlooking the sea at sunset."
+        ],
+        "telegram_drop": (
+            "🎬 **REEL DROP: Behind The Scenes on Set**\n\n"
+            "Lighting & production specs from today's Amalfi reel:\n"
+            "👉 [Amazon COB Continuous Light](https://www.amazon.in/s?k=cob+continuous+video+light+100w+bowens+mount+softbox&tag=gaganresrise-21)\n"
+            "👉 [Resrise Studio Community](https://t.me/resrise_studio) #affiliate"
         )
     }
 ]

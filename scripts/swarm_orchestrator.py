@@ -105,69 +105,101 @@ class ConceptAgent:
 
 
 class VisualPromptAgent:
-    """Agent 2: Builds a ready-to-paste CRAFT / Google Flow image prompt."""
+    """Agent 2: Builds raw smartphone-candid realism prompts inspired by @okay.adiiti (no glossy Leica/studio editorial)."""
 
     @staticmethod
     def run(account: str, profile: dict, concept: dict) -> str:
-        ai_prompt = (
-            f"Write one concise, photorealistic Google Flow / Whisk image prompt (max 60 words) for "
-            f"{profile['display_name']} (@{account}) in {concept['location']}, theme: {concept['pillar']}, format: {concept['format']}. "
-            f"Visual style: {profile['visual_style']}. Include outfit, lighting, and camera framing. No text or watermarks."
-        )
+        is_reel = "reel" in concept.get("format", "").lower()
+        if is_reel:
+            ai_prompt = (
+                f"Write one raw smartphone vertical 9:16 Reel video prompt (max 50 words) for "
+                f"{profile['display_name']} (@{account}) in {concept['location']}, theme: {concept['pillar']}. "
+                "Include: raw smartphone 9:16 vertical video, 4-6s slow turn or hair-flip motion, "
+                "natural direct sunlight or subtle night-time on-camera flash, real skin pores and stray hairs, "
+                "candid mid-laugh glance at phone camera, slightly imperfect framing, 35mm warm film tone, no heavy retouching, no watermarks."
+            )
+            fallback = (
+                f"Raw smartphone 9:16 vertical video of {profile['display_name']} (@{account}) in {concept['location']}, "
+                f"wearing {concept['pillar']}. 4-6s slow turn and candid hair-flip motion, natural direct sunlight, "
+                "real skin pores and stray hairs, mid-laugh glance at phone camera, slightly imperfect framing, 35mm warm film tone, no heavy retouching."
+            )
+        else:
+            ai_prompt = (
+                f"Write one raw smartphone-candid photo prompt (max 50 words) for "
+                f"{profile['display_name']} (@{account}) in {concept['location']}, theme: {concept['pillar']}. "
+                "Include: candid smartphone photo, natural direct sunlight or subtle night-time on-camera flash, "
+                "real skin pores and stray hairs, mid-laugh or candid hair-touch pose, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching, no watermarks."
+            )
+            fallback = (
+                f"Candid smartphone photo of {profile['display_name']} (@{account}) in {concept['location']}, "
+                f"wearing {concept['pillar']}. Natural direct sunlight or subtle night-time on-camera flash, "
+                "real skin pores and stray hairs, mid-laugh or candid hair-touch pose, slightly imperfect framing, 4:5 vertical, 35mm warm film tone, no heavy retouching."
+            )
+
         generated = call_ai_if_available(ai_prompt)
-        if generated:
-            return generated
-        return (
-            f"Editorial photograph of {profile['display_name']} (@{account}) in {concept['location']}, "
-            f"theme: {concept['pillar']} ({concept['format']}). Style: {profile['visual_style']}. "
-            "Natural skin texture, realistic fabric drape, crisp eye focus, no text or watermarks."
-        )
+        return generated if generated else fallback
 
 
 class CopywriterAgent:
-    """Agent 3: Writes caption + hashtags tailored to the persona."""
+    """Agent 3: Writes punchy conversational/Hinglish captions (inspired by @okay.adiiti) + 4-5 clean hashtags."""
+
+    CLEAN_HASHTAGS = {
+        "avanyamehra": "#AvanyaMehra #QuietLuxury #OOTDInspo #MinimalFit #LuxeVault",
+        "mairamehraofficial": "#MairaMehra #SareeDrape #DesiOOTD #WeddingSeason #EthnicVibes",
+        "iamgagankumar": "#GaganKumar #MenswearCapsule #LinenFit #MensStyle #DelhiFit",
+        "resrise": "#ResriseStudio #CreativeStudio #SetLife #VisualDirection #CreatorSystems",
+        "gagankumarrocks": "#GaganKumarRocks #CreatorTech #DeskSetup #FounderMindset #MediaSystems",
+    }
 
     TEMPLATES = {
         "avanyamehra": [
-            "Between {location} and nowhere — {pillar} in its quietest form.\n\nSave this frame for your mood board. 🤍",
-            "Minimal lines, timeless drape. Captured in {location}.\n\nWhich frame is your favorite? ✨",
-            "Quiet luxury isn't loud — it's in the silhouette. {pillar} from {location}. 🤎",
+            "Dilli winters & oversized coats just hit different ☕\n\nOutfit details pinned in bio club 🤍",
+            "Running 10 mins late as usual 🥐\n\nExact pieces linked in my bio vault ✨",
+            "Subtle flex, zero noise 🤎\n\nSaved the full look breakdown in bio ⤵",
+            "When the sunlight does 90% of the styling work ☀️\n\nSourcing all pieces in bio vault 🤍",
         ],
         "mairamehraofficial": [
-            "Golden hour in {location} hits different when the styling feels effortless. ✨\n\nSwipe through & tell me your favorite frame!",
-            "Checking in from {location} — {pillar} kind of mood today. 🌿📸",
-            "Collecting sunlight and good frames in {location}. 🤍🌍",
+            "Golden hour pe ye drape... no filter needed 🌸✨\n\nExact saree source pinned in my bio club ⤵",
+            "Mummy approved this saree in 2 seconds 🌸\n\nGrab the direct piece in bio club ✨",
+            "Draping took 5 mins, photos took 50 📸\n\nFull drape details live in bio club 🌸",
+            "Udaipur mornings and vintage jhumkas 🤍\n\nJewelry & saree links saved in bio club 🌸",
         ],
         "iamgagankumar": [
-            "{pillar} — clean lines, zero noise. Shot in {location}. 🔥\n\nDrop a 💯 if you'd rock this fit.",
-            "Details make the fit. {pillar} look from {location}. 👌\n\nLink in bio for curated menswear & grooming finds.",
-            "Keep the silhouette sharp and let the tailoring speak. {location} session. 🖤",
+            "Linen season rules: keep it simple, keep it sharp ⚡\n\nFit & scent details in bio capsule ⤵",
+            "Bandhgala fitting right for tonight's wedding 🖤\n\nDirect suit piece linked in bio club ⚡",
+            "Old-school coffee run in rolled sleeves ☕⚡\n\nFull capsule breakdown in bio link ⤵",
+            "Clean tailoring always speaks louder than hype 🔥\n\nGrooming & fit specs in bio capsule ⚡",
         ],
         "resrise": [
-            "Building high-leverage creator systems from {location}. Scaling {pillar} across our roster. 🚀\n\nDM 'SCALE' to explore production partnerships.",
-            "Behind the lens at {location} — redefining digital aesthetics with {pillar}. 💡\n\nJoin our Telegram studio channel for roster drops.",
-            "High production value meets programmatic distribution. {pillar} live from {location}. ⚡",
+            "Behind the scenes on our latest campaign 🎬✨\n\nStudio gear & client roster in bio ⤵",
+            "Raw frames straight out of camera on set 🌊📸\n\nProduction deck & gear list in bio link ✨",
+            "Golden hour lighting test on set 💡✨\n\nJoin our Telegram studio hub via bio ⤵",
+            "On set magic with natural bounce light 🌊\n\nCreative production retainers in bio link ⤵",
         ],
         "gagankumarrocks": [
-            "Media systems > vanity metrics. Scaling {pillar} blueprints here in {location}. 📈\n\nComment 'SYSTEMS' or join Telegram for the full breakdown.",
-            "Architecting the modern creator economy flywheel. Field notes on {pillar} from {location}. ♟️",
-            "Direct response meets luxury brand equity. {pillar} execution in {location}. 🚀",
+            "Late night desk flow, bina kisi distraction ke 🚀\n\nMic & keyboard specs in bio link ⤵",
+            "Zero noise, pure audio test 🎙️🔥\n\nWorkspace tech & mic specs pinned in bio ⤵",
+            "Building systems while everyone is scrolling ☕⚡\n\nFull founder blueprint in bio link 🚀",
+            "Monitors on, phone on silent 💻⚡\n\nComplete desk architecture in bio link 🚀",
         ],
     }
 
     @staticmethod
     def run(account: str, profile: dict, concept: dict) -> str:
+        clean_tags = CopywriterAgent.CLEAN_HASHTAGS.get(account, profile.get("hashtags", ""))
         ai_prompt = (
-            f"Write a concise, authentic Instagram caption (2-3 short lines, no cringe) for @{account} "
-            f"({profile['display_name']}, {profile['niche']}). Tone: {profile['tone']}. "
-            f"Topic: {concept['pillar']} in {concept['location']} ({concept['format']}). End with a subtle question or CTA. "
-            f"Do not include hashtags."
+            f"Write a super short, punchy Hinglish or conversational Instagram caption (inspired by @okay.adiiti) "
+            f"for @{account} ({profile['display_name']}). Topic: {concept['pillar']} in {concept['location']}. "
+            "Rule 1: Line 1 must be 1 short punchy line or 1-2 emoji hook (MAX 8-12 WORDS). "
+            "Rule 2: Line 2 must be 1 subtle save or bio-club line (e.g. 'outfit details pinned in bio 🤍'). "
+            "Rule 3: No long AI paragraphs, no corporate buzzwords. "
+            "Output ONLY the 2-line caption text without hashtags."
         )
         caption = call_ai_if_available(ai_prompt)
-        if not caption:
-            template = random.choice(CopywriterAgent.TEMPLATES[account])
-            caption = template.format(location=concept["location"], pillar=concept["pillar"])
-        return f"{caption}\n\n{profile['hashtags']}"
+        if not caption or len(caption.split()) > 25:
+            template = random.choice(CopywriterAgent.TEMPLATES.get(account, CopywriterAgent.TEMPLATES["avanyamehra"]))
+            caption = template
+        return f"{caption}\n\n{clean_tags}"
 
 
 class ViralScoreAgent:
