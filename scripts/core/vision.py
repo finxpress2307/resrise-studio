@@ -199,16 +199,41 @@ class GeminiVision(VisionProviderBase):
 
         self._rate_limiter.acquire()
 
-        b64_img = base64.b64encode(image_bytes).decode("ascii")
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.config.model}:generateContent?key={self.config.api_key}"
-        payload = json.dumps({
-            "contents": [{
-                "parts": [
-                    {"text": prompt},
-                    {"inline_data": {"mime_type": "image/png", "data": b64_img}},
-                ]
-            }]
-        }).encode("utf-8")
+        # 1. Try official google-genai SDK
+        try:
+            from google import genai
+            from google.genai import types
+
+            client = genai.Client(api_key=self.config.api_key)
+            contents = [prompt]
+            if image_bytes:
+                contents.append(types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"))
+
+            model_name = self.config.model or "gemini-3.5-flash"
+            if model_name.startswith("models/"):
+                model_name = model_name[7:]
+            if model_name in ("gemini-2.5-flash", "gemini-2.0-flash"):
+                model_name = "gemini-3.5-flash"
+
+            response = client.models.generate_content(
+                model=model_name,
+                contents=contents,
+            )
+            reply = (response.text or "").strip().strip('"')
+            return "" if not reply or reply.upper().startswith("SKIP") else reply
+        except Exception as sdk_err:
+            self.logger.warning("google-genai SDK call failed, falling back to REST", error=str(sdk_err))
+
+        # 2. REST Fallback
+        b64_img = base64.b64encode(image_bytes).decode("ascii") if image_bytes else ""
+        model = self.config.model or "gemini-3.5-flash"
+        if model in ("gemini-2.5-flash", "gemini-2.0-flash"):
+            model = "gemini-3.5-flash"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={self.config.api_key}"
+        parts = [{"text": prompt}]
+        if b64_img:
+            parts.append({"inline_data": {"mime_type": "image/jpeg", "data": b64_img}})
+        payload = json.dumps({"contents": [{"parts": parts}]}).encode("utf-8")
 
         req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
         try:
