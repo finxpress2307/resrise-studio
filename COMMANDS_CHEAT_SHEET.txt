@@ -1,0 +1,139 @@
+================================================================================
+                    RESRISE STUDIO - INSTAGRAM AUTOMATION CHEAT SHEET
+                     (Managing All 5 Accounts: 3 Muses + Agency + Founder)
+================================================================================
+
+PROJECT DIRECTORY:
+cd "D:\social media\resrise-studio"
+
+ALL 5 ACCOUNTS:
+1. @avanyamehra        (Editorial & High-Fashion Model)
+2. @mairamehraofficial (Saree & Style Creator)
+3. @iamgagankumar      (Menswear & Grooming Model)
+4. @resrise            (Creative Production Studio / Agency)
+5. @gagankumarrocks    (Media Entrepreneur / Founder)
+
+
+--------------------------------------------------------------------------------
+1. ONE-TIME LOGIN (Run once per account, log in, then close Chrome)
+--------------------------------------------------------------------------------
+
+cd "D:\social media\resrise-studio"
+
+python scripts\login.py --account avanyamehra
+python scripts\login.py --account mairamehraofficial
+python scripts\login.py --account iamgagankumar
+python scripts\login.py --account resrise
+python scripts\login.py --account gagankumarrocks
+
+
+--------------------------------------------------------------------------------
+2. CLEAN & HUMAN-LIKE BIO UPDATES (STRICTLY UNDER 150 CHARACTERS)
+--------------------------------------------------------------------------------
+
+Preview all bios with exact character counts:
+python update_bios.py
+
+Apply automatically to Instagram:
+python update_bios.py --account all --apply
+(Or single account: python update_bios.py --account mairamehraofficial --apply)
+
+Exact Copy-Paste Text:
+
+@avanyamehra (119/150 chars):
+📍 New Delhi · Milan · Paris
+Editorial & high-fashion muse ✨
+Represented by @resrise
+VIP Luxe Vault: @avanyamehra_luxe ⤵
+Website: https://t.me/avanyamehra_luxe
+
+@mairamehraofficial (124/150 chars):
+🌸 Timeless drapes into everyday art
+Saree styling & travel edits ✨
+Represented by @resrise
+VIP Saree Club: @mairamehraclub ⤵
+Website: https://t.me/mairamehraclub
+
+@iamgagankumar (135/150 chars):
+⚡ Tailored fits & minimalist style
+Curated menswear & grooming edits
+Represented by @resrise
+Men's Capsule Club: @gagankumar_menswear ⤵
+Website: https://t.me/gagankumar_menswear
+
+@resrise (131/150 chars):
+✨ AI creative production & campaigns
+Curating modern muses & visual stories
+contact.resrise@gmail.com
+VIP Roster: @resrise_studio ⤵
+Website: https://t.me/resrise_studio
+
+@gagankumarrocks (123/150 chars):
+🚀 Media entrepreneur & systems architect
+Founder @resrise
+Scaling modern creator brands
+Media Systems: @gagankumar_growth ⤵
+Website: https://t.me/gagankumar_growth
+
+
+--------------------------------------------------------------------------------
+3. PARALLEL AUTOMATION LAUNCHER (Run all accounts in separate terminals)
+--------------------------------------------------------------------------------
+
+# Launch default 3 model muses:
+python launch_parallel_terminals.py
+
+# Launch all 5 accounts simultaneously:
+python launch_parallel_terminals.py --accounts avanyamehra mairamehraofficial iamgagankumar resrise gagankumarrocks
+
+# PowerShell One-Liner for all 5:
+@("avanyamehra","mairamehraofficial","iamgagankumar","resrise","gagankumarrocks") | ForEach-Object { Start-Process powershell -WorkingDirectory "D:\social media\resrise-studio" -ArgumentList "-NoExit", "-Command", "`$Host.UI.RawUI.WindowTitle = '[Automation] @$_'; python run_account.py --account $_ --mode both" }
+
+
+--------------------------------------------------------------------------------
+4. DEDICATED SINGLE ACCOUNT RUNNER (Full loop: Feed + Stories + Replies)
+--------------------------------------------------------------------------------
+
+cd "D:\social media\resrise-studio"
+python run_account.py --account avanyamehra --mode both
+python run_account.py --account mairamehraofficial --mode both
+python run_account.py --account iamgagankumar --mode both
+python run_account.py --account resrise --mode both
+python run_account.py --account gagankumarrocks --mode both
+
+
+--------------------------------------------------------------------------------
+5. FEED BROWSING & VISION COMMENTING (ig_browsing.py)
+--------------------------------------------------------------------------------
+
+cd "D:\social media\resrise-studio"
+python scripts\ig_browsing.py --account avanyamehra
+python scripts\ig_browsing.py --account mairamehraofficial
+python scripts\ig_browsing.py --account iamgagankumar
+python scripts\ig_browsing.py --account resrise
+python scripts\ig_browsing.py --account gagankumarrocks
+
+
+--------------------------------------------------------------------------------
+6. POST COMMENT REPLIER (ig_replier.py)
+   (Multimodal Vision AI; checks threads to skip already-answered comments)
+--------------------------------------------------------------------------------
+
+cd "D:\social media\resrise-studio"
+python scripts\ig_replier.py --account avanyamehra
+python scripts\ig_replier.py --account mairamehraofficial
+python scripts\ig_replier.py --account iamgagankumar
+python scripts\ig_replier.py --account resrise
+python scripts\ig_replier.py --account gagankumarrocks
+
+
+================================================================================
+CRITICAL OPERATING RULES:
+================================================================================
+1. PARALLEL SAFETY:
+   - You CAN run different accounts at the same time in separate terminals.
+   - Do NOT run two scripts at the same time for the SAME account, because Chrome locks each profile folder to one active browser instance.
+
+2. VISION AI (FreeLLMAPI):
+   - Vision commenting requires FreeLLMAPI active on port 3001 (configured in setting.json).
+   - Comments you already replied to are automatically detected in the DOM and skipped.

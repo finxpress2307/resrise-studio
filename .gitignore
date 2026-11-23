@@ -1,0 +1,79 @@
+# Environment & Secrets
+.env
+.env.local
+setting.json
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & Runtime Data
+*.log
+activity_log*.txt
+reply_activity_log*.txt
+engager_activity_log*.txt
+comments_review*.txt
+publish_log*.txt
+
+# Chrome Browser Profiles (contains auth cookies)
+ig_session_profile/
+
+# User Generated Content & Runtime State
+draft_media/
+draft_media_archive/
+comment_drafts_*.json
+replied_comments_cache_*.json
+commented_posts_cache_*.json
+swarm_queue.json
+
+# Temporary root test images & screenshots
+/*_login_check.png
+/corner_*.png
+/corner_*.jpg
+/clean_*.png
+/clean_*.jpg
+/choker_*.png
+/gagan_*.png
+/maira_*.png
+/maira_*.jpg
+/*_strip.jpg
+/*_strip.png
+/*_contrast.png
+/vendome_*.jpg
+/orig_*.jpg
+/desk_preview.jpg
+/*_br200.jpg
+/*_br_80.png
+/post_direct_view.png
+/*.after_continue.png
+/*.after_click_continue.png
+
+# Build Artifacts & Virtualenvs
+dist/
+build/
+node_modules/
+.venv/
+*.egg-info/
+scratch/
+.claude/
+.vercel/

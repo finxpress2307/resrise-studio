@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESRISE | AI Creative Studio — Virtual Muse @avanyamehra</title>
+  <meta name="description" content="AI-Native Creative Production Studio crafting hyper-realistic virtual models, digital fashion editorials, and commercial visual production for luxury brands.">
+
+  <!-- Tailwind CSS via CDN (pinned version) -->
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#09090b',
+              dark: '#111115',
+              card: '#141419',
+              border: 'rgba(255, 255, 255, 0.08)',
+              acid: '#d4ff00',
+              acidHover: '#e2ff33',
+              cyan: '#00f0ff',
+              muted: '#a1a1aa'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons via CDN (pinned version) -->
+  <script src="https://unpkg.com/lucide@0.400.0"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://generativelanguage.googleapis.com https://openrouter.ai; frame-src 'self';">
+</head>
+<body class="bg-brand-black text-zinc-100 selection:bg-brand-acid selection:text-black min-h-screen relative noise-bg">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow-top"></div>
+  <div class="ambient-glow-side"></div>
+
+  <!-- ========================================================================
+       1. NAVIGATION / HEADER
+       ======================================================================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-brand-black/85 border-b border-brand-border transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-acid group-hover:scale-125 transition-transform duration-300"></span>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-xl tracking-[0.22em] text-white group-hover:text-brand-acid transition-colors">RESRISE</span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">AI Creative Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+        <a href="#roster" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span>Creators & Telegram</span>
+          <span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-brand-acid/10 text-brand-acid border border-brand-acid/30">VIP Funnels</span>
+        </a>
+        <a href="#work" class="hover:text-white transition-colors">Work</a>
+        <a href="#muse" class="hover:text-white flex items-center gap-1.5 transition-colors">
+          <span>Muse</span>
+          <span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-brand-acid border border-zinc-700/60">Avanya</span>
+        </a>
+        <a href="#services" class="hover:text-white transition-colors">Services & Pricing</a>
+        <a href="#about" class="hover:text-white transition-colors">Technology</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://t.me/resrise_studio" target="_blank" rel="noopener noreferrer" 
+           class="p-2 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-full transition-colors" title="Resrise Telegram Studio Hub">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </a>
+        <a href="https://instagram.com/avanyamehra" target="_blank" rel="noopener noreferrer" 
+           class="p-2 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-full transition-colors" title="Avanya Mehra Instagram">
+          <i data-lucide="instagram" class="w-4 h-4"></i>
+        </a>
+        <a href="#inquire" class="btn-acid text-xs uppercase tracking-wider px-5 py-2.5 rounded-full flex items-center gap-2">
+          <span>Book Pilot</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none" aria-label="Toggle navigation menu">
+        <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-brand-border bg-brand-black/95 px-6 py-6 flex-col gap-4 text-sm font-medium">
+      <a href="#roster" class="mobile-link text-zinc-300 hover:text-brand-acid py-2 flex items-center justify-between">
+        <span>Creator Swarm & Telegram Funnels</span>
+        <span class="text-xs font-mono text-brand-acid">5 Channels</span>
+      </a>
+      <a href="#work" class="mobile-link text-zinc-300 hover:text-brand-acid py-2">Work & Lookbook</a>
+      <a href="#muse" class="mobile-link text-zinc-300 hover:text-brand-acid py-2 flex items-center justify-between">
+        <span>Flagship Muse (@avanyamehra)</span>
+        <span class="text-xs font-mono text-brand-acid">Milan • Paris</span>
+      </a>
+      <a href="#services" class="mobile-link text-zinc-300 hover:text-brand-acid py-2">Services & Pricing</a>
+      <a href="#about" class="mobile-link text-zinc-300 hover:text-brand-acid py-2">Creative AI Pipeline</a>
+      <div class="pt-4 border-t border-zinc-800/80 flex flex-col gap-3">
+        <a href="#inquire" class="btn-acid text-center text-xs uppercase tracking-wider py-3 rounded-full flex items-center justify-center gap-2">
+          <span>Book Pilot Campaign</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <div class="flex justify-center gap-6 pt-2 text-xs text-zinc-400 font-mono">
+          <a href="https://t.me/resrise_studio" target="_blank" class="hover:text-brand-acid">Telegram Hub</a>
+          <span>•</span>
+          <a href="https://instagram.com/resrise" target="_blank" class="hover:text-white">@resrise</a>
+          <span>•</span>
+          <a href="https://instagram.com/avanyamehra" target="_blank" class="hover:text-brand-acid">@avanyamehra</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO SECTION
+       ======================================================================== -->
+  <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <!-- Status Pill -->
+      <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel mb-8 border border-zinc-800/80">
+        <span class="w-2 h-2 rounded-full bg-brand-acid status-dot"></span>
+        <span class="text-xs font-mono tracking-wide text-zinc-300">Accepting Select Q4 / Q1 Editorial Commissions</span>
+        <span class="hidden sm:inline-block text-zinc-600">|</span>
+        <span class="hidden sm:inline-block text-xs font-mono text-brand-acid uppercase tracking-wider">Avanya Mehra v2.4</span>
+      </div>
+
+      <!-- Main Headline Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Copy & Actions -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl leading-[1.06] tracking-tight text-white mb-6">
+            AI-Native <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500">Creative Production</span> <br>
+            <span class="italic font-light text-brand-acid">Studio.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-zinc-400 font-light leading-relaxed max-w-xl mb-10">
+            Hyper-realistic virtual models, digital fashion editorials, and commercial visual production for forward-thinking brands. Zero physical production drag. 100% digital consistency.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <a href="#work" class="btn-acid text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-full flex items-center justify-center gap-2 w-full sm:w-auto">
+              <span>Explore Campaigns</span>
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+            </a>
+
+            <a href="#inquire" class="btn-outline-luxury text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-full flex items-center justify-center gap-2 w-full sm:w-auto">
+              <span>Inquire & Rates</span>
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="grid grid-cols-3 gap-6 sm:gap-10 pt-12 mt-12 border-t border-brand-border w-full">
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-white">8K</div>
+              <div class="font-mono text-xs text-zinc-400 uppercase tracking-wider mt-1">Native Render</div>
+            </div>
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-brand-acid">99.8%</div>
+              <div class="font-mono text-xs text-zinc-400 uppercase tracking-wider mt-1">Facial Lock</div>
+            </div>
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-white">48h</div>
+              <div class="font-mono text-xs text-zinc-400 uppercase tracking-wider mt-1">Pilot Turnaround</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Visual Showcase Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Floating Decorative Glass Tag -->
+            <div class="absolute -top-4 -left-4 z-20 glass-panel px-4 py-2.5 rounded-lg border border-brand-border flex items-center gap-3 shadow-2xl">
+              <span class="w-2 h-2 rounded-full bg-brand-acid"></span>
+              <div>
+                <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Featured Muse</p>
+                <p class="font-display text-xs font-bold text-white tracking-wide">Avanya Mehra (@avanyamehra)</p>
+              </div>
+            </div>
+
+            <!-- Main Hero Image Frame -->
+            <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl group">
+              <img
+                src="assets/avanya_hero.jpg"
+                alt="Avanya Mehra - Flagship Virtual Muse"
+                class="w-full aspect-[4/5] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                loading="lazy">
+              
+              <!-- Dark gradient overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-black/20"></div>
+
+              <!-- Bottom Info on Card -->
+              <div class="absolute bottom-6 left-6 right-6">
+                <div class="flex items-center justify-between text-xs font-mono text-zinc-300 pb-2 border-b border-white/10">
+                  <span class="flex items-center gap-1.5 text-brand-acid">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    Haute Couture Digital Spread
+                  </span>
+                  <span>Paris / Milan</span>
+                </div>
+                <div class="flex items-center justify-between mt-3 text-xs text-zinc-400">
+                  <span>Zero physical shoot constraints</span>
+                  <span class="text-white font-semibold">Resrise Pipeline v2.4</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Floating Tech Chip -->
+            <div class="absolute -bottom-5 -right-3 z-20 glass-panel px-4 py-3 rounded-lg border border-brand-border flex items-center gap-3">
+              <i data-lucide="camera" class="w-4 h-4 text-brand-acid"></i>
+              <div class="font-mono text-[11px] text-zinc-300">
+                <span>Multi-Angle Dynamic Lighting</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDITORIAL TICKER / BRAND STRIP
+       ======================================================================== -->
+  <div class="w-full border-y border-brand-border bg-brand-dark/50 py-4 overflow-hidden relative">
+    <div class="animate-marquee whitespace-nowrap flex items-center gap-12 font-mono text-xs uppercase tracking-[0.25em] text-zinc-500">
+      <span>• MILAN FASHION EDITORIALS</span>
+      <span class="text-zinc-300">• AVANYA MEHRA (@AVANYAMEHRA)</span>
+      <span>• 8K TENSOR PHOTOREALISM</span>
+      <span class="text-brand-acid">• BESPOKE AMBASSADORS</span>
+      <span>• PARIS DIGITAL COUTURE</span>
+      <span>• VIRTUAL RUNWAY MOTION</span>
+      <span class="text-zinc-300">• NEW DELHI NEO-HERITAGE</span>
+      <span>• 100% CHARACTER COHERENCE</span>
+      <!-- Duplicate for seamless infinite scroll -->
+      <span>• MILAN FASHION EDITORIALS</span>
+      <span class="text-zinc-300">• AVANYA MEHRA (@AVANYAMEHRA)</span>
+      <span>• 8K TENSOR PHOTOREALISM</span>
+      <span class="text-brand-acid">• BESPOKE AMBASSADORS</span>
+      <span>• PARIS DIGITAL COUTURE</span>
+      <span>• VIRTUAL RUNWAY MOTION</span>
+      <span class="text-zinc-300">• NEW DELHI NEO-HERITAGE</span>
+      <span>• 100% CHARACTER COHERENCE</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2.5 CREATOR SWARM & TELEGRAM MONETIZATION FUNNELS
+       ======================================================================== -->
+  <section id="roster" class="py-24 md:py-32 relative border-b border-brand-border bg-zinc-950/40">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+            Resrise Creator Swarm & Affiliate Flywheel
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white">
+            Creator Swarm & Telegram VIPs
+          </h2>
+          <p class="font-mono text-sm text-zinc-400 mt-2">
+            5 Distinct Personas • Direct Channel Invites • Curated Daily Shoppable Drops
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://t.me/resrise_studio" target="_blank" rel="noopener noreferrer" class="btn-acid text-xs uppercase tracking-wider px-6 py-3 rounded-full flex items-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Join Agency Studio Hub</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Affiliate Compliance Disclosure Banner -->
+      <div class="p-4 sm:p-5 rounded-2xl glass-panel border border-brand-acid/30 mb-12 flex items-start sm:items-center gap-4 bg-brand-acid/5">
+        <i data-lucide="shield-check" class="w-6 h-6 text-brand-acid shrink-0 mt-0.5 sm:mt-0"></i>
+        <p class="text-xs text-zinc-300 leading-relaxed font-mono">
+          <strong class="text-brand-acid uppercase">ASCI & FTC Affiliate Disclosure:</strong> Curated styling pieces and product drops contain tracked affiliate links (EarnKaro profit links with <code class="text-white">&amp;subid=</code> and Amazon Associates tracking tags with <code class="text-white">-21</code>). Resrise Studio and our creators earn qualifying commissions on eligible purchases at zero extra cost to you. #affiliate #ad
+        </p>
+      </div>
+
+      <!-- Creator Swarm Grid (Populated dynamically via app.js) -->
+      <div id="creatorRosterGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <!-- Rendered by app.js from data.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. FLAGSHIP MUSE SPOTLIGHT: AVANYA MEHRA (@avanyamehra)
+       ======================================================================== -->
+  <section id="muse" class="py-24 md:py-32 relative border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+            Flagship Virtual Muse
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white">
+            Avanya Mehra
+          </h2>
+          <p class="font-mono text-sm text-zinc-400 mt-2 flex items-center gap-2">
+            <span>Milan • Paris • New Delhi</span>
+            <span class="text-zinc-600">•</span>
+            <a href="https://instagram.com/avanyamehra" target="_blank" class="text-brand-acid hover:underline flex items-center gap-1">
+              <span>@avanyamehra</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </p>
+        </div>
+
+        <p class="text-zinc-400 text-sm md:text-base max-w-md font-light leading-relaxed">
+          Engineered for international luxury fashion houses. Avanya embodies modern South Asian elegance merged with avant-garde Parisian tailoring.
+        </p>
+      </div>
+
+      <!-- Muse Feature Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Column: Character Attributes & Consistency Showcase -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+          
+          <div class="glass-panel p-8 rounded-2xl border border-brand-border space-y-6">
+            <h3 class="font-display font-bold text-xl text-white flex items-center justify-between">
+              <span>Character Consistency Engine</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-brand-acid/10 text-brand-acid border border-brand-acid/20">
+                PROPRIETARY
+              </span>
+            </h3>
+            
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Unlike generic AI generation, Avanya operates on fixed neural facial weights. Her bone structure, skin complexion, and gaze remain identical across hundreds of angles, outfits, and lighting conditions.
+            </p>
+
+            <!-- Specification List -->
+            <div class="space-y-4 pt-2">
+              <div class="flex items-center justify-between py-2 border-b border-zinc-800 text-xs">
+                <span class="text-zinc-400 font-mono">Facial Geometry Lock</span>
+                <span class="text-white font-mono font-medium">99.8% Coherence</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-zinc-800 text-xs">
+                <span class="text-zinc-400 font-mono">Lighting Coherence</span>
+                <span class="text-white font-mono font-medium">Multi-Strobe & HDR Skies</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-zinc-800 text-xs">
+                <span class="text-zinc-400 font-mono">Fabric Physics</span>
+                <span class="text-white font-mono font-medium">Silk, Chiffon, Leather & Metal</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-zinc-800 text-xs">
+                <span class="text-zinc-400 font-mono">Global Runway Suitability</span>
+                <span class="text-white font-mono font-medium">Haute Couture & Street Luxe</span>
+              </div>
+            </div>
+
+            <!-- Call to action for Avanya -->
+            <div class="pt-2">
+              <a href="#inquire" class="btn-acid text-xs uppercase tracking-wider py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 w-full">
+                <span>Cast Avanya In Your Next Campaign</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Editorial Quote -->
+          <div class="glass-panel p-6 rounded-2xl border border-brand-border">
+            <div class="flex items-center gap-2 text-zinc-500 mb-2">
+              <i data-lucide="quote" class="w-4 h-4 text-brand-acid"></i>
+              <span class="font-mono text-xs uppercase tracking-wider">Aesthetic Manifesto</span>
+            </div>
+            <p class="font-display italic text-sm text-zinc-200">
+              "Avanya brings the timeless grace of the East into the brutalist architectural landscapes of Milan and Paris. A new paradigm of editorial luxury."
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Editorial Shots Gallery -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" id="museShowcaseGrid">
+          <!-- Dynamically populated from data.js -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. MODULAR PORTFOLIO / LOOKBOOK ARCHIVE
+       ======================================================================== -->
+  <section id="work" class="py-24 md:py-32 relative border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+            Lookbook Archive
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white">
+            Curated Visual Campaigns
+          </h2>
+        </div>
+
+        <p class="text-zinc-400 text-sm max-w-sm font-light">
+          Modular campaign archive. Click any piece to inspect styling details, high-resolution rendering, and commercial licensing specs.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 pb-8 mb-8 border-b border-brand-border" id="categoryFilterContainer">
+        <!-- Injected dynamically from data.js -->
+      </div>
+
+      <!-- Dynamic Portfolio Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+        <!-- Cards rendered via vanilla JavaScript from data.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. SERVICES & PRICING
+       ======================================================================== -->
+  <section id="services" class="py-24 md:py-32 relative border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="inline-flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+          Tailored Production Packages
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white mb-6">
+          Predictable Creative Investment.
+        </h2>
+        <p class="text-zinc-400 text-base font-light">
+          Choose from pilot trial campaigns, full e-commerce garment placements, or custom virtual ambassador partnerships. No unexpected onset charges.
+        </p>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch" id="pricingCardsGrid">
+        <!-- Rendered dynamically from data.js -->
+      </div>
+
+      <!-- Production Guarantee Banner -->
+      <div class="mt-16 glass-panel p-8 rounded-2xl border border-brand-border flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 text-brand-acid">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-white text-base">Pixel-Level Commercial Guarantee</h4>
+            <p class="text-xs text-zinc-400 mt-1">Full IP commercial indemnity, high-resolution source exports (TIFF/PNG 8K), and guaranteed character consistency.</p>
+          </div>
+        </div>
+        <a href="#inquire" class="btn-outline-luxury text-xs font-mono uppercase tracking-wider px-6 py-3 rounded-lg whitespace-nowrap">
+          Read Rights Policy
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. ABOUT / STUDIO PIPELINE
+       ======================================================================== -->
+  <section id="about" class="py-24 md:py-32 relative border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+            The Resrise Studio Difference
+          </div>
+
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white">
+            High-Fashion Editorial Meets Generative Precision.
+          </h2>
+
+          <p class="text-zinc-400 text-sm sm:text-base font-light leading-relaxed">
+            Traditional luxury photoshoots demand overseas flights, crew bookings, unpredictable weather delays, and model scheduling frictions.
+          </p>
+
+          <p class="text-zinc-400 text-sm sm:text-base font-light leading-relaxed">
+            Resrise pairs top-tier art directors and fashion stylists with state-of-the-art diffusion neural networks. We produce runway-grade collections in days with zero carbon footprint and zero physical friction.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-zinc-950/60 border border-zinc-800/80">
+              <i data-lucide="zap" class="w-5 h-5 text-brand-acid mb-2"></i>
+              <h4 class="font-display font-bold text-white text-sm">Rapid Delivery</h4>
+              <p class="text-xs text-zinc-400 mt-1">From initial moodboard to finalized 8K campaign drops within 5-7 business days.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-zinc-950/60 border border-zinc-800/80">
+              <i data-lucide="globe" class="w-5 h-5 text-brand-acid mb-2"></i>
+              <h4 class="font-display font-bold text-white text-sm">Global Settings</h4>
+              <p class="text-xs text-zinc-400 mt-1">Place your collection in Paris, Tokyo, Lake Como, or sci-fi brutalist spaces instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="glass-panel p-8 rounded-2xl border border-brand-border relative z-10 space-y-6">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+              <span class="font-mono text-xs uppercase tracking-wider text-zinc-400">Production Workflow</span>
+              <span class="font-mono text-xs text-brand-acid">STEP 01 → 04</span>
+            </div>
+
+            <div class="space-y-5">
+              <div class="flex gap-4 items-start">
+                <span class="font-mono text-xs font-bold text-brand-acid px-2 py-1 bg-zinc-900 rounded border border-zinc-800">01</span>
+                <div>
+                  <h5 class="text-sm font-bold text-white">Moodboard & Garment Drape Intake</h5>
+                  <p class="text-xs text-zinc-400 mt-0.5">Share your collection lookbook, sketches, color palettes, and reference locations.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <span class="font-mono text-xs font-bold text-brand-acid px-2 py-1 bg-zinc-900 rounded border border-zinc-800">02</span>
+                <div>
+                  <h5 class="text-sm font-bold text-white">Muse & Persona Calibration</h5>
+                  <p class="text-xs text-zinc-400 mt-0.5">Avanya Mehra or a custom bespoke virtual model tuned specifically to your brand archetype.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <span class="font-mono text-xs font-bold text-brand-acid px-2 py-1 bg-zinc-900 rounded border border-zinc-800">03</span>
+                <div>
+                  <h5 class="text-sm font-bold text-white">High-Fidelity Neural Generation</h5>
+                  <p class="text-xs text-zinc-400 mt-0.5">Multi-pass rendering focusing on micro-textures, skin pores, fabric folds, and ray-traced lighting.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <span class="font-mono text-xs font-bold text-brand-acid px-2 py-1 bg-zinc-900 rounded border border-zinc-800">04</span>
+                <div>
+                  <h5 class="text-sm font-bold text-white">Editorial Grade & 8K Delivery</h5>
+                  <p class="text-xs text-zinc-400 mt-0.5">Color matching, retouching, and export in print-ready TIFF and web-optimized 4K formats.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. CONTACT / INQUIRY & BOOKING SECTION
+       ======================================================================== -->
+  <section id="inquire" class="py-24 md:py-32 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-brand-acid font-mono text-xs uppercase tracking-widest mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-acid"></span>
+          Direct Inquiries & Casting
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white mb-4">
+          Initiate Your Campaign.
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base font-light">
+          Submit your project requirements below. Our creative director responds within 24 hours.
+        </p>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-border relative shadow-2xl">
+        
+        <form id="inquiryForm" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Name -->
+            <div>
+              <label for="clientName" class="block font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                Your Name <span class="text-brand-acid">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="clientName" 
+                required 
+                placeholder="e.g. Elena Rostova"
+                class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-acid transition-colors">
+            </div>
+
+            <!-- Brand / Agency -->
+            <div>
+              <label for="clientBrand" class="block font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                Brand / Agency <span class="text-brand-acid">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="clientBrand" 
+                required 
+                placeholder="e.g. Atelier Vesper Paris"
+                class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-acid transition-colors">
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Service Package -->
+            <div>
+              <label for="servicePackage" class="block font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                Selected Service Package <span class="text-brand-acid">*</span>
+              </label>
+              <select 
+                id="servicePackage" 
+                required
+                class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-acid transition-colors">
+                <option value="Package A: Virtual Editorial Campaign (Pilot) — 8 Stills, 2 Video Loops">Package A: Virtual Editorial Campaign (Pilot) — $2,400</option>
+                <option value="Package B: AI Product Placement & Catalog — 15 Scenes">Package B: AI Product Placement & Catalog — $4,800</option>
+                <option value="Package C: Bespoke Virtual Ambassador (Retainer)">Package C: Bespoke Virtual Ambassador (Retainer)</option>
+                <option value="Custom Project / Single Editorial Drop">Custom Project / Single Editorial Drop</option>
+              </select>
+            </div>
+
+            <!-- Budget -->
+            <div>
+              <label for="estimatedBudget" class="block font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                Estimated Budget (USD)
+              </label>
+              <select 
+                id="estimatedBudget" 
+                class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-acid transition-colors">
+                <option value="$2,000 - $5,000">$2,000 - $5,000 (Pilot Campaign)</option>
+                <option value="$5,000 - $10,000">$5,000 - $10,000 (Catalog & Drops)</option>
+                <option value="$10,000+">$10,000+ (Retainer / Ambassador)</option>
+                <option value="To Be Discussed">To Be Discussed</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="clientMessage" class="block font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+              Project Brief & Timing <span class="text-brand-acid">*</span>
+            </label>
+            <textarea 
+              id="clientMessage" 
+              rows="4" 
+              required
+              placeholder="Tell us about your brand aesthetic, launch date, number of garments, and whether you'd like to feature Avanya Mehra or require a bespoke persona..."
+              class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-acid transition-colors"></textarea>
+          </div>
+
+          <!-- Actions Row -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <!-- Submit Button (triggers mailto with prefilled body) -->
+            <button 
+              type="submit" 
+              class="btn-acid text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-2 w-full sm:w-auto">
+              <span>Send Campaign Brief</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Direct WhatsApp Button -->
+            <a 
+              id="whatsappBtn" 
+              href="https://wa.me/919876543210?text=Hi%20Resrise%20Studio%2C%20I%20would%20like%20to%20inquire%20about%20a%20virtual%20editorial%20campaign%20with%20Avanya%20Mehra." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="btn-outline-luxury text-xs font-mono uppercase tracking-wider py-4 px-6 rounded-xl flex items-center justify-center gap-2 w-full sm:w-auto">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+              <span>Direct WhatsApp Desk</span>
+            </a>
+
+          </div>
+
+          <!-- Notice -->
+          <div class="pt-2 text-center sm:text-left text-xs font-mono text-zinc-500 flex items-center gap-2">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+            <span>Direct dispatch to <strong class="text-zinc-400">contact.resrise@gmail.com</strong>. NDA available upon request.</span>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. FOOTER
+       ======================================================================== -->
+  <footer class="border-t border-brand-border bg-brand-dark/80 pt-16 pb-12 relative z-10 text-zinc-400 text-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-brand-border">
+        
+        <!-- Col 1: Studio Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-acid"></span>
+            <span class="font-display font-extrabold text-xl tracking-[0.2em] text-white">RESRISE</span>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-sm">
+            AI-Native Creative Production Studio representing next-generation virtual talents, commercial AI photography, and high-fashion digital editorials.
+          </p>
+          <div class="font-mono text-xs text-brand-acid">
+            Milan • Paris • New Delhi • Tokyo
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="md:col-span-2 space-y-3">
+          <h5 class="font-mono text-xs uppercase tracking-widest text-white">Exploration</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#roster" class="hover:text-brand-acid transition-colors">Creator Swarm</a></li>
+            <li><a href="#work" class="hover:text-brand-acid transition-colors">Campaign Lookbook</a></li>
+            <li><a href="#muse" class="hover:text-brand-acid transition-colors">Avanya Profile</a></li>
+            <li><a href="#services" class="hover:text-brand-acid transition-colors">Production Packages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Telegram Channels -->
+        <div class="md:col-span-3 space-y-3">
+          <h5 class="font-mono text-xs uppercase tracking-widest text-white flex items-center gap-1.5">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-brand-acid"></i>
+            <span>Telegram VIP Hubs</span>
+          </h5>
+          <ul class="space-y-2 text-xs font-mono">
+            <li><a href="https://t.me/avanyamehra_luxe" target="_blank" rel="noopener noreferrer" class="hover:text-brand-acid transition-colors flex items-center justify-between"><span>Avanya Luxe</span><span class="text-zinc-600">@avanyamehra_luxe</span></a></li>
+            <li><a href="https://t.me/mairamehraclub" target="_blank" rel="noopener noreferrer" class="hover:text-brand-acid transition-colors flex items-center justify-between"><span>Maira Saree</span><span class="text-zinc-600">@mairamehraclub</span></a></li>
+            <li><a href="https://t.me/gagankumar_menswear" target="_blank" rel="noopener noreferrer" class="hover:text-brand-acid transition-colors flex items-center justify-between"><span>Gagan Capsule</span><span class="text-zinc-600">@gagankumar_menswear</span></a></li>
+            <li><a href="https://t.me/resrise_studio" target="_blank" rel="noopener noreferrer" class="hover:text-brand-acid transition-colors flex items-center justify-between"><span>Resrise Studio</span><span class="text-zinc-600">@resrise_studio</span></a></li>
+            <li><a href="https://t.me/gagankumar_growth" target="_blank" rel="noopener noreferrer" class="hover:text-brand-acid transition-colors flex items-center justify-between"><span>Gagan Growth</span><span class="text-zinc-600">@gagankumar_growth</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Social & Presence -->
+        <div class="md:col-span-2 space-y-3">
+          <h5 class="font-mono text-xs uppercase tracking-widest text-white">Social & Desk</h5>
+          <div class="space-y-2 text-xs font-mono">
+            <div><a href="https://instagram.com/resrise" target="_blank" class="text-white hover:text-brand-acid">@resrise</a></div>
+            <div><a href="https://instagram.com/avanyamehra" target="_blank" class="text-brand-acid hover:underline">@avanyamehra</a></div>
+            <div><a href="mailto:contact.resrise@gmail.com" class="text-white hover:text-brand-acid text-[11px] truncate block">contact.resrise@gmail.com</a></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Compliance & Copyright -->
+      <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+        <div>
+          © 2026 RESRISE STUDIO. All rights reserved. • ASCI & FTC Affiliate Compliant (#affiliate)
+        </div>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>EarnKaro & Amazon Tracked Links</span>
+          <span>•</span>
+          <a href="#inquire" class="text-brand-acid hover:underline">Book Commission</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       LIGHTBOX MODAL FOR LOOKBOOK ITEMS
+       ======================================================================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full glass-panel rounded-2xl overflow-hidden border border-zinc-700 shadow-2xl flex flex-col md:flex-row" onclick="event.stopPropagation()">
+      
+      <!-- Close Button -->
+      <button id="closeLightboxBtn" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 border border-zinc-700 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-black transition-colors" aria-label="Close Preview">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Modal Image -->
+      <div class="md:w-3/5 bg-black flex items-center justify-center overflow-hidden">
+        <img id="lightboxImg" src="" alt="Lookbook High Res Preview" class="w-full max-h-[75vh] object-contain">
+      </div>
+
+      <!-- Modal Content & Details -->
+      <div class="md:w-2/5 p-6 md:p-8 flex flex-col justify-between space-y-6 bg-brand-dark/95">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span id="lightboxCategory" class="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-zinc-900 text-brand-acid border border-brand-acid/30"></span>
+            <span id="lightboxYear" class="text-[10px] font-mono text-zinc-500"></span>
+          </div>
+
+          <h3 id="lightboxTitle" class="font-display font-extrabold text-2xl text-white"></h3>
+          <p id="lightboxClient" class="text-xs font-mono text-zinc-400 mt-1"></p>
+
+          <p id="lightboxDesc" class="text-xs text-zinc-300 mt-4 leading-relaxed font-light"></p>
+
+          <!-- Tags -->
+          <div id="lightboxTags" class="flex flex-wrap gap-1.5 mt-4"></div>
+        </div>
+
+        <div class="pt-4 border-t border-zinc-800 flex flex-col gap-2">
+          <button id="lightboxInquireBtn" class="btn-acid text-xs uppercase tracking-wider py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2">
+            <span>Inquire About This Aesthetic</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Load Data Store First as Module -->
+  <script type="module" src="data.js"></script>
+
+  <!-- Main Application Script as Module -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

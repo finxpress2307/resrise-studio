@@ -1,0 +1,61 @@
+# Resrise Studio - Pre-commit hooks
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Ruff - Fast Python linter (replaces flake8, isort, pyupgrade, etc.)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        types_or: [python, pyi]
+      - id: ruff-format
+        types_or: [python, pyi]
+
+  # Black - Code formatter (as backup for ruff-format)
+  - repo: https://github.com/psf/black
+    rev: 24.1.1
+    hooks:
+      - id: black
+        language_version: python3.11
+        types_or: [python, pyi]
+
+  # Pyright - Type checking
+  - repo: https://github.com/microsoft/pyright
+    rev: 1.1.300
+    hooks:
+      - id: pyright
+        args: [--pythonversion=3.11]
+        types_or: [python, pyi]
+        additional_dependencies: [pydantic, pydantic-settings, playwright, httpx, typer, rich, structlog, tenacity]
+
+  # Generic hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: debug-logger
+      - id: detect-private-key
+      - id: detect-aws-credentials
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: [--maxkb=500]
+
+  # Secret detection
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.1
+    hooks:
+      - id: gitleaks
+
+  # Commit message format
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.13.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]

@@ -1,0 +1,149 @@
+{
+  "accounts": {
+    "avanyamehra": {
+      "display_name": "Avanya Mehra | Virtual Fashion Muse",
+      "identity_type": "AI-generated virtual character (Fictional muse created by Resrise Studio)",
+      "legal_owner": "Resrise Studio (Founder: Gagan Kumar)",
+      "niche": "High-Fashion & Parisian Tailoring",
+      "locations": ["Milan", "Paris", "New Delhi", "Mumbai"],
+      "visual_style": "35mm editorial film, 85mm portrait lens, quiet luxury, 4:5 portrait",
+      "tone": "Poised, editorial, understated luxury",
+      "bio_declaration": "AI-generated virtual fashion character • Styled by @resrise • Made with AI",
+      "pillars": [
+        "Quiet Luxury Outerwear & Tailoring",
+        "Evening Cowl Gowns & Silhouettes",
+        "Editorial Fashion Moodboards"
+      ],
+      "hashtags": "#AvanyaMehra #AIGenerated #VirtualFashion #QuietLuxury #ResriseStudio #MadeWithAI #ad",
+      "telegram": {
+        "channel_name": "Avanya Mehra Luxe Vault",
+        "url": "https://t.me/avanyamehra_luxe",
+        "handle": "@avanyamehra_luxe"
+      },
+      "affiliate": {
+        "amazon_tag": "gaganresrise-21",
+        "earnkaro_user_id": "5804190",
+        "subid": "avanya_luxe",
+        "account_holder": "Gagan Kumar (Sole Proprietorship / Resrise Studio)"
+      },
+      "trigger_keywords": ["STYLE", "COUTURE", "WESTERN", "VIBE"],
+      "routing_policy": "Bio link funnel only (Automated comment spam disabled for compliance)"
+    },
+    "mairamehraofficial": {
+      "display_name": "Maira Mehra | Virtual Ethnic Muse",
+      "identity_type": "AI-generated virtual character (Fictional muse created by Resrise Studio)",
+      "legal_owner": "Resrise Studio (Founder: Gagan Kumar)",
+      "niche": "Saree Styling & Royal Indian Couture",
+      "locations": ["Udaipur", "Jaipur", "Hyderabad", "Manali"],
+      "visual_style": "Warm natural lighting, palace courtyards, 85mm f/1.4, 4:5 portrait",
+      "tone": "Warm, graceful, cultural heritage with modern royal finesse",
+      "bio_declaration": "AI-generated virtual cultural character • Styled by @resrise • Made with AI",
+      "pillars": [
+        "Heritage Saree Draping & Silks",
+        "Festive Organza & Antique Kundan",
+        "Wedding Guest Styling Guides"
+      ],
+      "hashtags": "#MairaMehra #AIGenerated #SareeDrapes #IndianCouture #ResriseStudio #MadeWithAI #ad",
+      "telegram": {
+        "channel_name": "Maira Mehra VIP Saree Club",
+        "url": "https://t.me/mairamehraclub",
+        "handle": "@mairamehraclub"
+      },
+      "affiliate": {
+        "amazon_tag": "gaganresrise-21",
+        "earnkaro_user_id": "5804190",
+        "subid": "maira_saree",
+        "account_holder": "Gagan Kumar (Sole Proprietorship / Resrise Studio)"
+      },
+      "trigger_keywords": ["SAREE", "DRAPE", "ETHNIC", "LOOK"],
+      "routing_policy": "Bio link funnel only (Automated comment spam disabled for compliance)"
+    },
+    "iamgagankumar": {
+      "display_name": "Gagan Kumar | Menswear & Style",
+      "identity_type": "Real Person (Gagan Kumar) • AI-assisted digital photography",
+      "legal_owner": "Gagan Kumar",
+      "niche": "Classic Menswear, Tailoring & Grooming",
+      "locations": ["New Delhi", "Gurugram", "Mumbai"],
+      "visual_style": "Sharp tailoring, classic speakeasy, 85mm lens, 4:5 portrait",
+      "tone": "Confident, sharp, practical menswear authority",
+      "bio_declaration": "Menswear, Tailoring & Grooming • AI-assisted studio photography • Co-Founder @resrise",
+      "pillars": [
+        "Bespoke Bandhgalas & Black-Tie",
+        "French Linen & Smart Casual",
+        "Men's Grooming & Fragrances"
+      ],
+      "hashtags": "#GaganKumar #MenswearIndia #SharpTailoring #Grooming #ResriseStudio #MadeWithAI #ad",
+      "telegram": {
+        "channel_name": "Gagan Kumar Men's Capsule Club",
+        "url": "https://t.me/gagankumar_menswear",
+        "handle": "@gagankumar_menswear"
+      },
+      "affiliate": {
+        "amazon_tag": "gaganresrise-21",
+        "earnkaro_user_id": "5804190",
+        "subid": "gagan_mens",
+        "account_holder": "Gagan Kumar (Individual Account)"
+      },
+      "trigger_keywords": ["OUTFIT", "MENSWEAR", "SUIT", "CLASSIC"],
+      "routing_policy": "Bio link funnel only (Automated comment spam disabled for compliance)"
+    },
+    "gagankumarrocks": {
+      "display_name": "Gagan Kumar | Media & Systems",
+      "identity_type": "Real Person (Gagan Kumar) • Founder Profile",
+      "legal_owner": "Gagan Kumar",
+      "niche": "Creator Economy & AI Production Systems",
+      "locations": ["New Delhi", "Resrise HQ"],
+      "visual_style": "Modern founder studio desk, tech minimalist, 4:5 portrait",
+      "tone": "Insightful, pragmatic, builder mindset",
+      "bio_declaration": "Founder @resrise • Architecting Autonomous Creator Systems • AI Media Production",
+      "pillars": [
+        "Autonomous Creator Infrastructure",
+        "AI Media Production Workflows",
+        "Building Media Brands In Public"
+      ],
+      "hashtags": "#FounderMindset #BuildInPublic #CreatorEconomy #MediaHouse #ResriseStudio",
+      "telegram": {
+        "channel_name": "Media Systems & Growth Blueprint",
+        "url": "https://t.me/gagankumar_growth",
+        "handle": "@gagankumar_growth"
+      },
+      "affiliate": {
+        "amazon_tag": "gaganresrise-21",
+        "earnkaro_user_id": "5804190",
+        "subid": "gagan_growth",
+        "account_holder": "Gagan Kumar (Individual Account)"
+      },
+      "trigger_keywords": ["TECH", "TOOL", "PROMPT", "SETUP"],
+      "routing_policy": "Bio link funnel only (Automated comment spam disabled for compliance)"
+    },
+    "resrise": {
+      "display_name": "Resrise Studio",
+      "identity_type": "Virtual Production Agency & Media House",
+      "legal_owner": "Resrise Studio (Founder: Gagan Kumar)",
+      "niche": "Creative Production & Editorial Campaigns",
+      "locations": ["New Delhi", "Mumbai", "Milan", "Paris"],
+      "visual_style": "High-end agency aesthetics, cinematic lighting, case studies",
+      "tone": "Visionary, premium, authoritative",
+      "bio_declaration": "Autonomous Virtual Production Studio • AI-generated talent & campaign direction • Inquiries: DM / Link",
+      "pillars": [
+        "Campaign Case Studies",
+        "Virtual Talent Roster Highlights",
+        "Digital IP Licensing"
+      ],
+      "hashtags": "#ResriseStudio #CreativeAgency #VirtualProduction #BrandVisuals #AIGenerated",
+      "telegram": {
+        "channel_name": "Resrise Studio VIP Roster & Hub",
+        "url": "https://t.me/resrise_studio",
+        "handle": "@resrise_studio"
+      },
+      "affiliate": {
+        "amazon_tag": "gaganresrise-21",
+        "earnkaro_user_id": "5804190",
+        "subid": "resrise_studio",
+        "account_holder": "Gagan Kumar (Sole Proprietorship / Resrise Studio)"
+      },
+      "trigger_keywords": ["STUDIO", "SCALE", "AGENCY", "ROSTER"],
+      "routing_policy": "Bio link funnel only (Automated comment spam disabled for compliance)"
+    }
+  }
+}

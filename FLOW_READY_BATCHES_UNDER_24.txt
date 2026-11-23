@@ -1,0 +1,161 @@
+================================================================================
+       GOOGLE FLOW: SIZED BATCHES (UNDER 24 ITEMS EACH)
+================================================================================
+
+Google Flow has a strict maximum of 24 items per generation request.
+Here are the exact copy-paste batches (10 to 15 items each) to run sequentially.
+
+================================================================================
+BATCH 1: AVANYA INGREDIENTS (10 Items Total)
+Copy and paste this into Flow to generate Avanya's Dress & Background reference stills:
+================================================================================
+
+Generate the following 10 reference ingredient stills in 3:4 portrait aspect ratio (neutral fashion lookbook and architectural photography):
+
+1. Dress Still: Professional fashion catalog still life on neutral studio mannequin: raw-silk champagne gold column gown with draped cowl back and raw edge hem. Minimalist diamond ear studs displayed beside it. Studio lighting, 8k luxury lookbook.
+2. Background Still: Empty serene Mughal sandstone courtyard and reflecting pond at Sunder Nursery New Delhi at golden hour sunset, warm amber raking light, architectural wide angle, no people.
+3. Dress Still: Professional fashion catalog still life on neutral studio mannequin: obsidian black jersey halter gown with architectural metallic gold neck collar and matching sculptural brass cuff. Studio lighting, 8k luxury lookbook.
+4. Background Still: Empty minimalist limestone infinity rooftop terrace in South Mumbai overlooking the sea during twilight blue hour, city skyline bokeh, no people.
+5. Dress Still: Professional fashion catalog flat lay: blush-pink organza pre-draped saree with silver gota patti border, sleeveless silk blouse, and vintage polki studs neatly arranged. Studio lighting, 8k luxury lookbook.
+6. Background Still: Empty pale-pink sandstone courtyard with scalloped arches and carved jali lattice screens in Jaipur at morning sunrise, soft diffused light, no people.
+7. Dress Still: Professional fashion catalog still life on neutral mannequin: camel double-faced cashmere belted trench coat over charcoal fine-gauge cashmere knit and black leather boots. Studio lighting, 8k luxury lookbook.
+8. Background Still: Empty historic neoclassical colonnade and cobblestone street in Milan under soft morning overcast mist, architectural street view, no people.
+9. Dress Still: Professional fashion catalog still life on neutral mannequin: bespoke ivory double-breasted tuxedo dress with satin peak lapels and sheer black stockings. Studio lighting, 8k luxury lookbook.
+10. Background Still: Empty ornate Beaux-Arts bridge balustrades overlooking the Seine River in Paris at sunset, golden rim light, no people.
+
+
+================================================================================
+BATCH 2: AVANYA CAROUSELS (15 Items Total - 3 Slides x 5 Days)
+Copy and paste this into Flow after Batch 1:
+================================================================================
+
+Generate the following 15 high-fashion editorial carousel scenes in 3:4 portrait aspect ratio with character asset:AVANYA locked. For each day, maintain 100% IDENTICAL dress, fabrics, and jewelry across all 3 slides:
+
+[DAY 03 - AVANYA MEHRA]
+1. High-end editorial photograph of Avanya Mehra standing in the center of the sandstone courtyard near the reflecting pond, 35mm wide establishing frame. Wearing a raw-silk champagne gold column gown with draped cowl back and diamond ear studs. Shot on Hasselblad H6D-100c medium format. (character asset:AVANYA locked)
+2. Candid editorial photograph of Avanya Mehra mid-stride strolling past the sandstone arches, 50mm f/1.4. Wearing the exact same raw-silk champagne gold column gown and diamond ear studs, gown catching the evening breeze. Shot on Leica M11. (character asset:AVANYA locked)
+3. Intimate editorial portrait close-up of Avanya Mehra framed within the carved arch, 85mm f/1.8. Wearing the exact same champagne gold column gown and diamond ear studs, fine silk texture and skin glow in sharp focus. (character asset:AVANYA locked)
+
+[DAY 04 - AVANYA MEHRA]
+4. High-end editorial photograph of Avanya Mehra standing at the glass infinity edge of the rooftop terrace overlooking city lights, 35mm wide establishing frame. Wearing an obsidian black jersey halter gown with architectural metallic gold neck collar and matching sculptural brass cuff. Shot on Hasselblad H6D-100c. (character asset:AVANYA locked)
+5. Candid walking shot of Avanya Mehra strolling past minimalist limestone loungers on the terrace, 50mm f/1.4. Wearing the exact same obsidian black jersey halter gown, metallic gold collar, and brass cuff. Shot on Leica M11. (character asset:AVANYA locked)
+6. Intimate beauty portrait close-up of Avanya Mehra, 85mm f/1.8. Wearing the exact same obsidian black halter gown and metallic gold collar, sharp specular catchlights, micro-pores. (character asset:AVANYA locked)
+
+[DAY 05 - AVANYA MEHRA]
+7. High-end editorial photograph of Avanya Mehra standing in the pale-pink sandstone courtyard under scalloped arches, 35mm wide establishing frame. Wearing a blush-pink organza pre-draped saree with silver gota patti border, sleeveless silk blouse, and vintage polki studs. Shot on Hasselblad H6D-100c. (character asset:AVANYA locked)
+8. Candid mid-stride shot of Avanya Mehra walking past carved jali lattice screens, 50mm f/1.4. Wearing the exact same blush-pink organza saree, gota patti border, and polki studs. Shot on Leica M11. (character asset:AVANYA locked)
+9. Intimate beauty portrait close-up of Avanya Mehra framed in scalloped arch, 85mm f/1.8. Wearing the exact same blush-pink organza saree and polki studs. (character asset:AVANYA locked)
+
+[DAY 06 - AVANYA MEHRA]
+10. High-end editorial photograph of Avanya Mehra standing in the neoclassical colonnade in Milan, 35mm wide establishing frame. Wearing a camel double-faced cashmere belted trench coat over charcoal fine-gauge cashmere knit and black leather boots. Shot on Hasselblad H6D-100c. (character asset:AVANYA locked)
+11. Candid mid-stride photograph of Avanya Mehra crossing cobblestone lane, 50mm f/1.4. Wearing the exact same camel cashmere belted trench coat, charcoal knit, and black leather boots. Shot on Leica M11. (character asset:AVANYA locked)
+12. Intimate close-up portrait of Avanya Mehra leaning against classical stone column, 85mm f/1.8. Wearing the exact same camel cashmere trench coat and charcoal knit. (character asset:AVANYA locked)
+
+[DAY 07 - AVANYA MEHRA]
+13. High-end editorial photograph of Avanya Mehra standing on Pont Alexandre III in Paris, 35mm wide establishing frame. Wearing a bespoke ivory double-breasted tuxedo dress with satin peak lapels and sheer black stockings. Shot on Hasselblad H6D-100c. (character asset:AVANYA locked)
+14. Candid walking shot of Avanya Mehra strolling along the Seine river promenade, 50mm f/1.4. Wearing the exact same bespoke ivory tuxedo dress with satin peak lapels. Shot on Leica M11. (character asset:AVANYA locked)
+15. Intimate close-up portrait of Avanya Mehra leaning against carved bridge balustrade, 85mm f/1.8. Wearing the exact same ivory tuxedo dress with satin peak lapels. (character asset:AVANYA locked)
+
+
+================================================================================
+BATCH 3: MAIRA INGREDIENTS (10 Items Total)
+Copy and paste this into Flow for Maira's Dress & Background reference stills:
+================================================================================
+
+Generate the following 10 reference ingredient stills in 3:4 portrait aspect ratio (lifestyle fashion lookbook and travel photography):
+
+1. Dress Still: Professional fashion catalog flat lay: pale mint-green handwoven Chanderi cotton-silk kurta set with delicate white lace borders, sheer dupatta, and silver oxidized jhumkas. Studio lighting, 8k lifestyle lookbook.
+2. Background Still: Empty serene stone river ghat on the banks of the Ganges in Rishikesh at dawn, misty water and forested hills in distance, no people.
+3. Dress Still: Professional fashion catalog flat lay: cream chunky cable-knit turtleneck sweater, high-waisted tailored wool trousers, brown leather belt, and dainty gold chain necklace. Studio lighting, 8k lifestyle lookbook.
+4. Background Still: Empty rustic wooden veranda of an alpine pine cottage in Manali overlooking misty deodar forests, soft morning mountain light, no people.
+5. Dress Still: Professional fashion catalog flat lay: vibrant marigold-yellow tiered cotton anarkali with mirror-work yoke, matching chiffon dupatta, and colorful glass bangles. Studio lighting, 8k lifestyle lookbook.
+6. Background Still: Empty sunlit heritage palace courtyard in Jaipur with painted fresco walls, potted palms, and marble arches, no people.
+7. Dress Still: Professional fashion catalog flat lay: coral peach chiffon saree with micro-sequin scalloped border, sleeveless silk blouse, and pearl drop earrings. Studio lighting, 8k lifestyle lookbook.
+8. Background Still: Empty coastal white stucco veranda in Mumbai with terracotta planters overlooking palm trees and ocean sunset, no people.
+9. Dress Still: Professional fashion catalog flat lay: royal indigo blue bandhani georgette saree with antique gold zari border, quarter-sleeve blouse, and heirloom silver choker. Studio lighting, 8k lifestyle lookbook.
+10. Background Still: Empty white marble jharokha balcony overlooking the calm rippling waters of Lake Pichola Udaipur at golden hour, no people.
+
+
+================================================================================
+BATCH 4: MAIRA CAROUSELS (15 Items Total - 3 Slides x 5 Days)
+Copy and paste this into Flow after Batch 3:
+================================================================================
+
+Generate the following 15 high-fashion editorial carousel scenes in 3:4 portrait aspect ratio with character asset:MAIRA locked. For each day, maintain 100% IDENTICAL dress, fabrics, and jewelry across all 3 slides:
+
+[DAY 03 - MAIRA MEHRA]
+1. High-end editorial photograph of Maira Mehra standing on the stone ghat steps at dawn in Rishikesh, 35mm wide establishing frame. Wearing a pale mint-green handwoven Chanderi cotton-silk kurta set with delicate white lace borders and silver oxidized jhumkas. Shot on Hasselblad H6D-100c. (character asset:MAIRA locked)
+2. Candid photograph of Maira Mehra sitting on the stone ghat edge looking towards the river, 50mm f/1.4. Wearing the exact same mint-green Chanderi kurta set, sheer dupatta, and silver jhumkas. Shot on Leica M11. (character asset:MAIRA locked)
+3. Intimate portrait close-up of Maira Mehra smiling warmly with dawn light catching soft waves, 85mm f/1.8. Wearing the exact same mint-green Chanderi kurta set and silver jhumkas. (character asset:MAIRA locked)
+
+[DAY 04 - MAIRA MEHRA]
+4. High-end editorial photograph of Maira Mehra standing on the wooden porch of an alpine cottage in Manali, 35mm wide establishing frame. Wearing a cream chunky cable-knit turtleneck sweater, high-waisted wool trousers, brown leather belt, and dainty gold chain necklace. Shot on Hasselblad H6D-100c. (character asset:MAIRA locked)
+5. Candid walking shot of Maira Mehra walking on gravel trail lined with deodar pines, holding ceramic mug, 50mm f/1.4. Wearing the exact same cream cable turtleneck, wool trousers, and gold necklace. Shot on Leica M11. (character asset:MAIRA locked)
+6. Intimate close-up portrait of Maira Mehra leaning against rustic wooden pillar with steaming mug, 85mm f/1.8. Wearing the exact same cream cable turtleneck and gold necklace. (character asset:MAIRA locked)
+
+[DAY 05 - MAIRA MEHRA]
+7. High-end editorial photograph of Maira Mehra standing in the sunlit Samode palace courtyard in Jaipur, 35mm wide establishing frame. Wearing a vibrant marigold-yellow tiered cotton anarkali with mirror-work yoke and glass bangles. Shot on Hasselblad H6D-100c. (character asset:MAIRA locked)
+8. Candid mid-stride shot of Maira Mehra walking along frescoed hallway, 50mm f/1.4. Wearing the exact same marigold-yellow tiered anarkali, mirror-work yoke, and glass bangles. Shot on Leica M11. (character asset:MAIRA locked)
+9. Intimate close-up portrait of Maira Mehra laughing naturally near potted palms, 85mm f/1.8. Wearing the exact same marigold-yellow anarkali with mirror-work details and glass bangles. (character asset:MAIRA locked)
+
+[DAY 06 - MAIRA MEHRA]
+10. High-end editorial photograph of Maira Mehra standing on coastal white veranda in Mumbai at sunset, 35mm wide establishing frame. Wearing a coral peach chiffon saree with micro-sequin scalloped border and pearl drop earrings. Shot on Hasselblad H6D-100c. (character asset:MAIRA locked)
+11. Candid walking shot of Maira Mehra strolling past terracotta planters as ocean breeze catches the saree pallu, 50mm f/1.4. Wearing the exact same coral peach chiffon saree and pearl earrings. Shot on Leica M11. (character asset:MAIRA locked)
+12. Intimate close-up portrait of Maira Mehra smiling towards sunset, 85mm f/1.8. Wearing the exact same coral peach chiffon saree and pearl drop earrings. (character asset:MAIRA locked)
+
+[DAY 07 - MAIRA MEHRA]
+13. High-end editorial photograph of Maira Mehra standing in carved white marble jharokha overlooking Lake Pichola in Udaipur, 35mm wide establishing frame. Wearing a royal indigo blue bandhani georgette saree with antique gold zari border and silver choker. Shot on Hasselblad H6D-100c. (character asset:MAIRA locked)
+14. Candid mid-shot of Maira Mehra adjusting her drape near marble balustrade, 50mm f/1.4. Wearing the exact same royal indigo bandhani saree and silver choker. Shot on Leica M11. (character asset:MAIRA locked)
+15. Intimate close-up portrait of Maira Mehra framed against rippling water reflections, 85mm f/1.8. Wearing the exact same royal indigo bandhani saree and silver choker. (character asset:MAIRA locked)
+
+
+================================================================================
+BATCH 5: GAGAN INGREDIENTS (10 Items Total)
+Copy and paste this into Flow for Gagan's Dress & Background reference stills:
+================================================================================
+
+Generate the following 10 reference ingredient stills in 3:4 portrait aspect ratio (menswear lookbook and architectural photography):
+
+1. Dress Still: Professional menswear flat lay: crisp unbuttoned white poplin shirt with rolled cuffs, slate-grey tailored trousers, minimalist steel dive watch, and black leather belt. Studio lighting, 8k menswear lookbook.
+2. Background Still: Empty luxury dark slate and smoked-glass bathroom vanity with organized amber glass fragrance bottles, directional warm side light, no people.
+3. Dress Still: Professional menswear flat lay: heavyweight heather-grey waffle-knit crewneck under black canvas utility chore coat and dark raw Japanese selvedge denim. Studio lighting, 8k menswear lookbook.
+4. Background Still: Empty industrial concrete design studio with large birchwood drafting boards, blueprint rolls, and tall factory skylights, no people.
+5. Dress Still: Professional menswear still life on tailor's dummy: bespoke charcoal-grey unstructured wool blazer over a matte black fine-gauge merino turtleneck and charcoal pleated trousers. Studio lighting, 8k menswear lookbook.
+6. Background Still: Empty modernist red-brick and raw-concrete architectural atrium at India Habitat Centre Delhi, sharp diagonal shadows, no people.
+7. Dress Still: Professional menswear flat lay: dark olive suede bomber jacket over heavyweight white crewneck tee, relaxed black pleated trousers, and clean white leather sneakers. Studio lighting, 8k menswear lookbook.
+8. Background Still: Empty glass pedestrian skybridge in Gurugram at foggy morning dawn, modern steel silhouetted architecture, no people.
+9. Dress Still: Professional menswear still life on tailor's dummy: midnight-navy velvet tailored dinner jacket with black grosgrain shawl collar, crisp white shirt with black studs, and black silk bow tie. Studio lighting, 8k menswear lookbook.
+10. Background Still: Empty dark walnut-paneled speakeasy lounge with warm backlit amber bottles and leather chesterfield armchairs, no people.
+
+
+================================================================================
+BATCH 6: GAGAN CAROUSELS (15 Items Total - 3 Slides x 5 Days)
+Copy and paste this into Flow after Batch 5:
+================================================================================
+
+Generate the following 15 high-fashion editorial carousel scenes in 3:4 portrait aspect ratio with character asset:GAGAN locked. For each day, maintain 100% IDENTICAL attire, fabrics, and grooming styling across all 3 slides:
+
+[DAY 03 - GAGAN KUMAR]
+1. High-end editorial photograph of Gagan Kumar standing in front of dark slate bathroom vanity, 35mm wide establishing frame. Wearing a crisp unbuttoned white poplin shirt with rolled sleeves, slate trousers, and steel dive watch. Shot on Hasselblad H6D-100c. (character asset:GAGAN locked)
+2. Candid mid-shot of Gagan Kumar spritzing amber fragrance at collar, 50mm f/1.4. Wearing the exact same white poplin shirt with rolled sleeves and steel dive watch. Shot on Leica M11. (character asset:GAGAN locked)
+3. Intimate portrait close-up of Gagan Kumar inspecting amber fragrance bottle, 85mm f/1.8. Wearing the exact same white poplin shirt and steel dive watch. (character asset:GAGAN locked)
+
+[DAY 04 - GAGAN KUMAR]
+4. High-end editorial photograph of Gagan Kumar standing in the raw concrete design studio near large drafting table, 35mm wide establishing frame. Wearing a heavyweight heather-grey waffle-knit crewneck under black canvas utility chore coat and dark selvedge denim. Shot on Hasselblad H6D-100c. (character asset:GAGAN locked)
+5. Candid mid-shot of Gagan Kumar leaning over architectural drafting board reviewing blueprints, 50mm f/1.4. Wearing the exact same heather-grey waffle knit and black canvas chore coat. Shot on Leica M11. (character asset:GAGAN locked)
+6. Intimate close-up portrait of Gagan Kumar holding architectural scale ruler, 85mm f/1.8. Wearing the exact same heather-grey waffle knit and black canvas chore coat. (character asset:GAGAN locked)
+
+[DAY 05 - GAGAN KUMAR]
+7. High-end editorial photograph of Gagan Kumar standing in the exposed-brick atrium of Habitat Centre, 35mm wide establishing frame. Wearing a bespoke charcoal-grey unstructured wool blazer over a matte black fine-gauge merino turtleneck and charcoal pleated trousers. Shot on Hasselblad H6D-100c. (character asset:GAGAN locked)
+8. Candid mid-stride photograph of Gagan Kumar walking across brick courtyard, 50mm f/1.4. Wearing the exact same charcoal wool blazer, black turtleneck, and pleated trousers. Shot on Leica M11. (character asset:GAGAN locked)
+9. Intimate close-up portrait of Gagan Kumar leaning against brick pillar, 85mm f/1.8. Wearing the exact same charcoal wool blazer and black merino turtleneck. (character asset:GAGAN locked)
+
+[DAY 06 - GAGAN KUMAR]
+10. High-end editorial photograph of Gagan Kumar standing on glass skybridge in Gurugram, 35mm wide establishing frame. Wearing a dark olive suede bomber jacket, white heavyweight tee, and black pleated trousers. Shot on Hasselblad H6D-100c. (character asset:GAGAN locked)
+11. Candid walking shot of Gagan Kumar walking along glass bridge with hands in bomber jacket pockets, 50mm f/1.4. Wearing the exact same olive suede bomber jacket and white tee. Shot on Leica M11. (character asset:GAGAN locked)
+12. Intimate close-up portrait of Gagan Kumar leaning against glass rail, 85mm f/1.8. Wearing the exact same olive suede bomber jacket. (character asset:GAGAN locked)
+
+[DAY 07 - GAGAN KUMAR]
+13. High-end editorial photograph of Gagan Kumar standing in dark walnut-paneled speakeasy lounge, 35mm wide establishing frame. Wearing a midnight-navy velvet tailored dinner jacket with black grosgrain shawl collar, white shirt with studs, and black silk bow tie. Shot on Hasselblad H6D-100c. (character asset:GAGAN locked)
+14. Candid mid-shot of Gagan Kumar sitting at polished dark bar counter holding tumbler glass, 50mm f/1.4. Wearing the exact same midnight-navy velvet dinner jacket, shawl collar, and black bow tie. Shot on Leica M11. (character asset:GAGAN locked)
+15. Intimate close-up portrait of Gagan Kumar in warm amber speakeasy ambient light, 85mm f/1.8. Wearing the exact same midnight-navy velvet dinner jacket and black bow tie. (character asset:GAGAN locked)

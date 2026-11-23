@@ -1,0 +1,205 @@
+/* ==========================================================================
+   RESRISE | AI Creative Studio — Dark Luxury Theme & Micro-Interactions
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #09090b;
+  --bg-secondary: #111115;
+  --bg-card: rgba(18, 18, 22, 0.75);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(212, 255, 0, 0.4);
+  --acid-lime: #d4ff00;
+  --acid-glow: rgba(212, 255, 0, 0.15);
+  --electric-cyan: #00f0ff;
+  --text-primary: #fafafa;
+  --text-muted: #a1a1aa;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+}
+
+/* Headings with high-fashion character */
+.font-display {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-tag {
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* Noise overlay for cinematic luxury texture */
+.noise-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism card */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Luxury Acid Glow Accent */
+.acid-hover {
+  transition: all 0.25s ease;
+}
+
+.acid-hover:hover {
+  border-color: var(--acid-lime);
+  color: var(--acid-lime);
+  box-shadow: 0 0 25px var(--acid-glow);
+}
+
+.btn-acid {
+  background-color: var(--acid-lime);
+  color: #000000;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-acid:hover {
+  background-color: #e5ff4d;
+  box-shadow: 0 0 30px rgba(212, 255, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline-luxury {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-luxury:hover {
+  border-color: var(--acid-lime);
+  color: var(--acid-lime);
+  background: rgba(212, 255, 0, 0.04);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--acid-lime);
+}
+
+/* Editorial Image Zoom & Card Hover */
+.lookbook-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  background: #111115;
+}
+
+.lookbook-card img {
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+}
+
+.lookbook-card:hover img {
+  transform: scale(1.05);
+}
+
+.lookbook-overlay {
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0) 40%, rgba(9, 9, 11, 0.95) 100%);
+  transition: opacity 0.35s ease;
+}
+
+/* Ambient Radial Glows */
+.ambient-glow-top {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 255, 0, 0.06) 0%, rgba(0, 240, 255, 0.03) 40%, transparent 70%);
+  pointer-events: none;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.ambient-glow-side {
+  position: absolute;
+  right: -5%;
+  top: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 255, 0, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Ticker Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulsing Status Dot */
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 255, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(212, 255, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 255, 0, 0); }
+}
+
+.status-dot {
+  animation: pulse-dot 2.2s infinite;
+}
+
+/* Lightbox Modal Animation */
+#lightboxModal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#lightboxModal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#lightboxModal:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "Resrise Studio Centralized Affiliate Monetization Configuration. Enter your real approved Amazon Associates tag and EarnKaro account email below once registered.",
+  "amazon_associates": {
+    "enabled": true,
+    "primary_tag": "gaganresrise-21",
+    "marketplace": "amazon.in",
+    "fallback_search_base": "https://www.amazon.in/s",
+    "bank_status": "APPROVED (Punjab & Sind Bank ****560)",
+    "tracking_ids": {
+      "avanyamehra": "gaganresrise-21",
+      "mairamehraofficial": "gaganresrise-21",
+      "iamgagankumar": "gaganresrise-21",
+      "resrise": "gaganresrise-21",
+      "gagankumarrocks": "gaganresrise-21"
+    }
+  },
+  "earnkaro": {
+    "enabled": true,
+    "user_id": "5804190",
+    "user_name": "gagan kumar",
+    "account_email": "contact.resrise@gmail.com",
+    "referral_code": "5804190",
+    "subid_patterns": {
+      "avanyamehra": "avanya_luxe_{look_id}",
+      "mairamehraofficial": "maira_saree_{look_id}",
+      "iamgagankumar": "gagan_mens_{look_id}",
+      "resrise": "resrise_studio_{look_id}",
+      "gagankumarrocks": "gagan_growth_{look_id}"
+    }
+  },
+  "payout_defaults": {
+    "currency": "INR",
+    "method": "NEFT Direct Bank Deposit",
+    "pan_compliance": "Required (1% TDS refundable in ITR)",
+    "amazon_min_payout_inr": 1000,
+    "earnkaro_min_payout_inr": 10
+  }
+}
