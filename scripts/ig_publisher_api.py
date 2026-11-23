@@ -119,14 +119,16 @@ def upload_slide_to_cloud(image_path: str, post_id: str, slide_idx: int) -> tupl
     return res["secure_url"], res["public_id"]
 
 
-def cleanup_cloud_assets(public_ids: list[str]) -> None:
-    """Deletes temporary images from Cloudinary after successful Instagram publication."""
+def cleanup_cloud_assets(public_ids: list) -> None:
+    """Deletes temporary images/videos from Cloudinary after successful Instagram publication."""
     if not HAS_CLOUDINARY:
         return
-    for pid in public_ids:
+    for item in public_ids:
+        pid = item[0] if isinstance(item, (tuple, list)) else item
+        rtype = item[1] if isinstance(item, (tuple, list)) else ("video" if "reel" in pid else "image")
         try:
-            cloudinary.uploader.destroy(pid)
-            log(f"🧹 Cleaned up temporary cloud asset: {pid}")
+            cloudinary.uploader.destroy(pid, resource_type=rtype)
+            log(f"🧹 Cleaned up temporary cloud asset: {pid} ({rtype})")
         except Exception as e:
             log(f"⚠️ Warning: Failed to clean cloud asset {pid}: {e}")
 
