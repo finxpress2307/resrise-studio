@@ -18,6 +18,12 @@ PROJECT_DIR = (
     if os.path.basename(SCRIPT_DIR).lower() == "scripts"
     else SCRIPT_DIR
 )
+
+try:
+    import dotenv
+    dotenv.load_dotenv(os.path.join(PROJECT_DIR, ".env"))
+except ImportError:
+    pass
 QUEUE_FILE = os.path.join(PROJECT_DIR, "telegram_drops_queue.json")
 SENT_HISTORY_FILE = os.path.join(PROJECT_DIR, "sent_telegram_drops.json")
 
