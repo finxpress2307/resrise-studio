@@ -12,7 +12,67 @@ def generate_id():
     return uuid.uuid4().hex[:8]
 
 NEW_POSTS = [
-    # ---------------- 1. MAIRA MEHRA (Organza Floral & Kundan Choker) ----------------
+    # ---------------- 1. MAIRA MEHRA 3-SLIDE CAROUSEL (Festive Gold Tissue Saree - Adiiti Realism) ----------------
+    {
+        "id": generate_id(),
+        "account": "mairamehraofficial",
+        "display_name": "Maira Mehra",
+        "day_index": 16,
+        "status": "APPROVED",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "format": "Carousel (3 slides)",
+        "pillar": "Festive Gold Metallic Tissue Silk Saree & Backless Choli (Adiiti Realism)",
+        "location": "Taj Falaknuma Palace, Hyderabad, India",
+        "viral_score": 99,
+        "viral_reason": (
+            "3-slide same-outfit saree progression (Archetype 1 backless dori turn + "
+            "Archetype 2 double-elbows hair pose + Archetype 3 mirror vanity selfie) replicates "
+            "@okay.adiiti's highest-converting format, driving massive saves and comments."
+        ),
+        "image_prompt": (
+            "3-slide candid smartphone carousel of Maira Mehra in the same champagne gold metallic tissue silk saree with sweetheart backless choli and delicate tie strings (dori).\n"
+            "Slide 1 (Archetype 1: Backless Turn): Candid smartphone photo from behind, turning her head over her shoulder with a playful smirk, revealing deep backless choli fastened with thin silk dori strings and scalloped antique zari pallu over forearm, warm evening lamp lighting, real skin pores and spine contours.\n"
+            "Slide 2 (Archetype 2: Double Elbows Up Pose): Both arms raised gathering hair at the nape of the neck, elbows flared high creating hourglass silhouette, direct on-camera smartphone flash edge contrast, mid-laugh candid expression, stray hairs, silver bindi and dangling jhumkas.\n"
+            "Slide 3 (Archetype 3: Mirror Vanity Selfie): Raw vanity mirror selfie holding sleek smartphone, flash reflection bounce, rear camera visible, casual relaxed posture looking through phone screen, 35mm film grain, 4:5 vertical unretouched realism."
+        ),
+        "caption": (
+            "Mummy ki saree but make it spicy 🌸✨\r\n\r\n"
+            "Swipe to see the back cut & mirror check! Exact saree source & jewelry pinned in bio club ⤵\r\n\r\n"
+            "#MairaMehra #SareeDrape #DesiOOTD #WeddingSeason #EthnicVibes"
+        ),
+        "media_paths": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide1.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide2.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide3.jpg"),
+        ],
+        "media_files": [
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide1.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide2.jpg"),
+            os.path.join(PROJECT_DIR, "draft_media", "mairamehraofficial", "day16_maira_adiiti_saree_slide3.jpg"),
+        ],
+        "collaborators": ["resrise"],
+        "tagged_users": ["resrise"],
+        "scheduled_for": "2026-11-23 09:00 AM",
+        "alt_texts": [
+            "Slide 1 (Archetype 1): Candid smartphone photo of @mairamehraofficial turning over her shoulder to show backless choli with delicate dori strings in gold tissue silk saree.",
+            "Slide 2 (Archetype 2): Candid smartphone photo of @mairamehraofficial with double elbows up tying hair at the nape in gold tissue saree with on-camera flash.",
+            "Slide 3 (Archetype 3): Raw mirror vanity selfie of @mairamehraofficial holding phone with flash bounce in gold tissue saree and Kundan choker.",
+        ],
+        "telegram_drop": (
+            "💎 **MAIRA MEHRA VIP DROP: Festive Gold Tissue Silk & Backless Edit**\n\n"
+            "As seen in today's 3-slide viral saree drop:\n"
+            "• **Saree**: Handcrafted Molten Gold Metallic Tissue Silk with Scalloped Zari Border (₹2,499)\n"
+            "• **Jewelry**: Zaveri Pearls Antique Kundan & Pearl Choker Set (₹749 | 4.0★ 3,500+ reviews)\n\n"
+            "🛍️ **Verified Direct Acquisition Links**:\n"
+            "👉 [Amazon Saree Search](https://www.amazon.in/s?k=tissue+silk+saree+gold+metallic+scalloped+border&tag=gaganresrise-21)\n"
+            "👉 [Amazon Direct Kundan Choker](https://www.amazon.in/dp/B07QBCC7NW?tag=gaganresrise-21)\n"
+            "👉 [EarnKaro Multi-Store / Myntra Deal](https://topdeal.app.link/maira-organza-saree?subid=maira_saree_look1)\n\n"
+            "📌 Pinned in VIP Club. Drop comments/styling questions below!\n"
+            "*Disclosures: Links contain affiliate tracking tags (#affiliate). Curated at zero extra cost to you.*"
+        ),
+    },
+
+    # ---------------- 2. MAIRA MEHRA (Organza Floral & Kundan Choker) ----------------
     {
         "id": generate_id(),
         "account": "mairamehraofficial",
@@ -481,9 +541,12 @@ def apply_new_posts():
         with open(QUEUE_PATH, "r", encoding="utf-8-sig") as f:
             queue = json.load(f)
 
-    # Filter out any non-existent media paths or replace with fresh approved posts at front
-    # Set status of previously scheduled posts to STOPPED
-    for p in queue:
+    # Deduplicate against previous runs of NEW_POSTS by pillar
+    seen_pillars = {p.get("pillar") for p in NEW_POSTS}
+    clean_queue = [p for p in queue if p.get("pillar") not in seen_pillars]
+
+    # Set status of previously scheduled/approved posts to STOPPED
+    for p in clean_queue:
         if p.get("status") == "APPROVED":
             p["status"] = "STOPPED"
 
@@ -491,10 +554,10 @@ def apply_new_posts():
         if "media_paths" in p and "media_files" not in p:
             p["media_files"] = p["media_paths"]
 
-    updated_queue = NEW_POSTS + queue
+    updated_queue = NEW_POSTS + clean_queue
     with open(QUEUE_PATH, "w", encoding="utf-8") as f:
         json.dump(updated_queue, f, indent=2, ensure_ascii=False)
-    print(f"Successfully added {len(NEW_POSTS)} new APPROVED posts to swarm_queue.json!")
+    print(f"Successfully added {len(NEW_POSTS)} new posts to swarm_queue.json!")
 
     # Also save telegram drops
     telegram_drops = [
